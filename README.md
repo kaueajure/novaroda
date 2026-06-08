@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AutoGestor Pro
 
-## Getting Started
+Site institucional e sistema SaaS demonstrativo para lojas de automóveis, focado em carros e motos. O objetivo é apresentar a plataforma em páginas públicas completas e manter um painel administrativo funcional para simular a gestão de estoque, clientes e oportunidades.
 
-First, run the development server:
+## Stack utilizada
+
+- Next.js com App Router
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Zustand
+- React Hook Form
+- Zod
+- Lucide React
+- Recharts
+
+Essa stack foi escolhida por performance, componentização, boa DX, suporte a rotas modernas, animações suaves, estado local simples e evolução natural para backend/API em produção.
+
+## Como rodar
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Para validar produção:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+## Páginas públicas institucionais
 
-To learn more about Next.js, take a look at the following resources:
+- `/` - Página inicial institucional do AutoGestor Pro.
+- `/sobre` - Propósito da plataforma e visão operacional.
+- `/solucoes` - Módulos para estoque, atendimento, painel e rotina escalável.
+- `/recursos` - Recursos implementados e possíveis evoluções.
+- `/contato` - Contato demonstrativo para interessados.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+O site público usa navegação por páginas e paginação institucional no rodapé de cada rota pública. A experiência não depende de uma landing page única nem de elemento 3D no hero.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Painel demonstrativo
 
-## Deploy on Vercel
+- `/login` - Login fake com validação e redirecionamento para o painel.
+- `/painel` - Dashboard principal do lojista.
+- `/painel/veiculos` - Lista, filtros, ordenação, edição de status e exclusão.
+- `/painel/veiculos/novo` - Cadastro de veículo.
+- `/painel/veiculos/[id]` - Detalhes do veículo.
+- `/painel/veiculos/[id]/editar` - Edição do veículo.
+- `/painel/clientes` - Clientes/interessados com busca, filtro e cadastro simulado.
+- `/painel/oportunidades` - Funil de oportunidades em kanban.
+- `/painel/estatisticas` - Indicadores e gráficos da loja.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Funcionalidades simuladas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Login e logout fake.
+- Cadastro, edição, exclusão e visualização de veículos.
+- Filtros por busca, tipo, status e ordenação.
+- Alteração de status de veículo.
+- Cadastro e filtro de clientes interessados.
+- Mudança de etapa de oportunidades.
+- Toasts de feedback.
+- Dados persistidos localmente via Zustand persist.
+
+## Dados mockados
+
+Os dados iniciais ficam em `src/data` e simulam veículos, clientes, oportunidades, estatísticas, usuário lojista e loja. Eles são realistas, mas fictícios, e podem ser substituídos por chamadas de API quando o projeto evoluir.
+
+## Evoluções futuras
+
+- Autenticação real com sessão segura.
+- API e banco de dados para estoque, clientes e oportunidades.
+- Upload e otimização de imagens dos veículos.
+- Integração com WhatsApp, CRM e portais de anúncio.
+- Permissões por usuário e histórico de atividades.
+- Publicação pública de vitrine de veículos por loja.
