@@ -16,7 +16,7 @@ import {
 import { PreviaDashboard } from "@/components/marketing/PreviaDashboard";
 
 const imagemHome =
-  "https://images.unsplash.com/photo-1562141961-f1519e4229ce?q=80&w=1400&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1400&auto=format&fit=crop";
 const imagemSobre =
   "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1400&auto=format&fit=crop";
 const imagemSolucoes =
@@ -24,7 +24,7 @@ const imagemSolucoes =
 const imagemRecursos =
   "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1400&auto=format&fit=crop";
 const imagemContato =
-  "https://images.unsplash.com/photo-1556762501-0a6dd8d9baba?q=80&w=1400&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1400&auto=format&fit=crop";
 
 export function PaginaHomeInstitucional() {
   return (

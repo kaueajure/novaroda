@@ -15,9 +15,9 @@ const fonteCorpo = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "AutoGestor Pro | SaaS para lojas de veículos",
+  title: "AutoGestor Pro | Site institucional para lojas de veículos",
   description:
-    "Sistema moderno para lojistas gerenciarem carros, motos, clientes, estoque e oportunidades com menos retrabalho.",
+    "Site institucional e sistema demonstrativo para lojistas organizarem carros, motos, estoque, clientes e oportunidades.",
 };
 
 export default function RootLayout({
