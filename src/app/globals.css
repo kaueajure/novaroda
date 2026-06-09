@@ -1,52 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --background: #07090f;
-  --foreground: #f5f7fb;
-  --fundo: #07090f;
-  --fundo-elevado: #0d111a;
-  --fundo-card: rgba(16, 21, 33, 0.76);
-  --fundo-card-solido: #101521;
-  --linha: rgba(148, 163, 184, 0.18);
-  --linha-forte: rgba(148, 163, 184, 0.32);
-  --texto: #f5f7fb;
-  --texto-suave: #b7c0d8;
-  --texto-fraco: #7d89a6;
-  --principal: #61d6c8;
-  --principal-forte: #22b8a8;
-  --azul: #74a9ff;
-  --roxo: #a78bfa;
-  --verde: #77df9c;
-  --alerta: #f4bf75;
-  --erro: #ff7b8d;
-  --sucesso: #77df9c;
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --sombra-card: 0 18px 60px rgba(0, 0, 0, 0.34);
+  --background: #050505;
+  --foreground: #f4f1ea;
+  --fundo: #050505;
+  --fundo-elevado: #0b0c0c;
+  --fundo-card: #111312;
+  --fundo-card-solido: #151716;
+  --linha: rgba(188, 181, 166, 0.16);
+  --linha-forte: rgba(210, 199, 178, 0.31);
+  --texto: #f4f1ea;
+  --texto-suave: #c9c2b4;
+  --texto-fraco: #8f897d;
+  --principal: #c7a76a;
+  --principal-forte: #e0c385;
+  --azul: #8ea0aa;
+  --roxo: #a79582;
+  --verde: #8aa678;
+  --alerta: #d7a85b;
+  --erro: #d87163;
+  --sucesso: #8aa678;
+  --metal: #aeb4b6;
+  --asfalto: #090a09;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --sombra-card: 0 18px 54px rgba(0, 0, 0, 0.42);
 }
 
 [data-theme="light"] {
-  --background: #f6f8fb;
-  --foreground: #111827;
-  --fundo: #f6f8fb;
-  --fundo-elevado: #ffffff;
-  --fundo-card: rgba(255, 255, 255, 0.86);
-  --fundo-card-solido: #ffffff;
-  --linha: rgba(15, 23, 42, 0.12);
-  --linha-forte: rgba(15, 23, 42, 0.22);
-  --texto: #111827;
-  --texto-suave: #334155;
-  --texto-fraco: #64748b;
-  --principal: #0f9f90;
-  --principal-forte: #0d8177;
-  --azul: #2563eb;
-  --roxo: #7c3aed;
-  --verde: #15803d;
-  --alerta: #b45309;
-  --erro: #dc2626;
-  --sucesso: #15803d;
-  --sombra-card: 0 18px 60px rgba(15, 23, 42, 0.1);
+  --background: #eeeae1;
+  --foreground: #151515;
+  --fundo: #eeeae1;
+  --fundo-elevado: #f8f5ee;
+  --fundo-card: #fffdf8;
+  --fundo-card-solido: #fffdf8;
+  --linha: rgba(37, 37, 33, 0.14);
+  --linha-forte: rgba(37, 37, 33, 0.28);
+  --texto: #151515;
+  --texto-suave: #3d3a34;
+  --texto-fraco: #736d60;
+  --principal: #8b6629;
+  --principal-forte: #6f511f;
+  --azul: #52646d;
+  --roxo: #756555;
+  --verde: #4f6f3e;
+  --alerta: #9d6b1e;
+  --erro: #b84639;
+  --sucesso: #4f6f3e;
+  --metal: #6a7072;
+  --asfalto: #f6f2e9;
+  --sombra-card: 0 18px 50px rgba(37, 37, 33, 0.12);
 }
 
 @theme inline {
@@ -69,8 +73,11 @@
   --color-alerta: var(--alerta);
   --color-erro: var(--erro);
   --color-sucesso: var(--sucesso);
+  --color-metal: var(--metal);
+  --color-asfalto: var(--asfalto);
   --font-sans: var(--font-corpo);
   --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
 }
 
 * {
@@ -78,7 +85,9 @@
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at 12% -10%, rgba(199, 167, 106, 0.08), transparent 28rem),
+    linear-gradient(180deg, var(--fundo), #080807 44rem, var(--fundo));
   color: var(--foreground);
   font-family: var(--font-corpo), sans-serif;
   min-height: 100dvh;
@@ -109,7 +118,7 @@ a {
 }
 
 ::selection {
-  background: rgba(97, 214, 200, 0.28);
+  background: rgba(199, 167, 106, 0.28);
   color: var(--texto);
 }
 
@@ -123,13 +132,13 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.28);
+  background: rgba(188, 181, 166, 0.32);
   border: 2px solid var(--fundo);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 184, 0.44);
+  background: rgba(199, 167, 106, 0.48);
 }
 
 .foco-visivel {
@@ -138,8 +147,8 @@ a {
 }
 
 .foco-visivel:focus-visible {
-  box-shadow: 0 0 0 3px rgba(97, 214, 200, 0.32);
-  border-color: rgba(97, 214, 200, 0.8);
+  box-shadow: 0 0 0 3px rgba(199, 167, 106, 0.34);
+  border-color: rgba(224, 195, 133, 0.9);
 }
 
 .text-balance {
@@ -148,19 +157,67 @@ a {
 
 .superficie {
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
     var(--fundo-card);
   border: 1px solid var(--linha);
   box-shadow: var(--sombra-card);
-  backdrop-filter: blur(18px);
 }
 
-.grade-fina {
+.grade-fina,
+.padrao-vistoria {
   background-image:
-    linear-gradient(rgba(148, 163, 184, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.055) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), transparent 86%);
+    linear-gradient(rgba(188, 181, 166, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(188, 181, 166, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), transparent 88%);
+}
+
+.faixas-patio {
+  background-image:
+    repeating-linear-gradient(
+      115deg,
+      rgba(199, 167, 106, 0.16) 0,
+      rgba(199, 167, 106, 0.16) 1px,
+      transparent 1px,
+      transparent 18px
+    );
+}
+
+.numero-tecnico {
+  font-family: var(--font-mono), monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.placa-tecnica {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.75rem;
+  border: 1px solid var(--linha-forte);
+  border-radius: 0.35rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent),
+    var(--fundo-card-solido);
+  padding: 0.2rem 0.55rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--texto);
+}
+
+.etiqueta-metal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-bottom: 1px solid var(--principal);
+  color: var(--principal);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 @media (prefers-reduced-motion: reduce) {

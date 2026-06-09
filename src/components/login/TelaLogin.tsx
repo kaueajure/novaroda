@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Eye, EyeOff, Gauge, LockKeyhole, Mail, MoveLeft } from "lucide-react";
+import { Car, Eye, EyeOff, LockKeyhole, Mail, MoveLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -45,38 +45,42 @@ export function TelaLogin() {
   return (
     <main className="relative grid min-h-dvh place-items-center overflow-hidden bg-fundo px-4 py-10 text-texto sm:px-6">
       <FundoAnimado />
-      <div className="relative z-10 grid w-full max-w-6xl overflow-hidden rounded-2xl border border-linha bg-card/88 shadow-[0_30px_120px_rgba(0,0,0,0.24)] backdrop-blur-xl lg:grid-cols-[0.9fr_1.1fr]">
-        <section className="border-b border-linha bg-[linear-gradient(145deg,rgba(97,214,200,0.11),rgba(116,169,255,0.04))] p-6 sm:p-8 lg:border-b-0 lg:border-r">
+      <div className="relative z-10 grid w-full max-w-6xl overflow-hidden rounded-lg border border-linha bg-card shadow-[0_30px_120px_rgba(0,0,0,0.32)] lg:grid-cols-[0.88fr_1.12fr]">
+        <section className="relative border-b border-linha bg-fundo-elevado p-6 sm:p-8 lg:border-b-0 lg:border-r">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-principal/60 to-transparent" />
           <Link
             href="/"
-            className="foco-visivel inline-flex items-center gap-2 rounded-lg text-sm font-semibold text-texto-suave transition hover:text-texto"
+            className="foco-visivel inline-flex items-center gap-2 rounded-md text-sm font-semibold text-texto-suave transition hover:text-texto"
           >
             <MoveLeft className="size-4" aria-hidden="true" />
-            Voltar à tela inicial
+            Voltar ao site
           </Link>
           <div className="mt-14 max-w-md">
             <div className="flex items-center gap-3">
-              <span className="grid size-12 place-items-center rounded-xl border border-principal/30 bg-principal/12 text-principal">
-                <Gauge className="size-6" aria-hidden="true" />
+              <span className="grid size-12 place-items-center rounded-md border border-principal/35 bg-card-solido text-principal">
+                <Car className="size-6" aria-hidden="true" />
               </span>
               <div>
                 <p className="font-display text-3xl font-bold leading-none text-texto">
                   Nova Roda
                 </p>
+                <p className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-texto-fraco">
+                  Acesso operacional
+                </p>
               </div>
             </div>
-            <h1 className="mt-10 font-display text-5xl font-semibold leading-none text-texto">
-              Organize sua loja em poucos cliques.
+            <h1 className="mt-10 font-display text-5xl font-semibold leading-[0.96] text-texto">
+              Entre antes de abrir o pátio.
             </h1>
             <p className="mt-5 text-lg leading-8 text-texto-suave">
-              Acesse a demonstração para gerenciar estoque, clientes e
-              oportunidades em um painel dark, rápido e responsivo.
+              Controle estoque, propostas e leads com a mesma disciplina de uma
+              loja que conhece cada placa, KM e valor parado.
             </p>
           </div>
 
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-            {["Login demo", "Dados locais", "Fluxo completo", "Sem backend"].map((item) => (
-              <div key={item} className="rounded-xl border border-linha bg-white/[0.04] p-4">
+            {["Pátio", "Leads", "Propostas", "Relatórios"].map((item) => (
+              <div key={item} className="rounded-md border border-linha bg-card-solido p-4">
                 <p className="text-sm font-semibold text-texto">{item}</p>
               </div>
             ))}
@@ -84,15 +88,13 @@ export function TelaLogin() {
         </section>
 
         <motion.section
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.32 }}
+          transition={{ duration: 0.28 }}
           className="p-6 sm:p-8 lg:p-10"
         >
           <div className="mx-auto max-w-md">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-principal">
-              Painel lojista
-            </p>
+            <p className="etiqueta-metal">Painel lojista</p>
             <h2 className="mt-3 font-display text-4xl font-semibold text-texto">
               Entrar no sistema
             </h2>
@@ -123,14 +125,14 @@ export function TelaLogin() {
                     id="senha"
                     type={mostrarSenha ? "text" : "password"}
                     autoComplete="current-password"
-                    className="foco-visivel min-h-11 w-full rounded-lg border border-linha bg-card-solido px-10 py-2 text-base text-texto placeholder:text-texto-fraco transition duration-200 hover:border-linha-forte"
+                    className="foco-visivel min-h-11 w-full rounded-md border border-linha bg-card-solido px-10 py-2 text-base text-texto placeholder:text-texto-fraco transition duration-200 hover:border-linha-forte"
                     aria-invalid={errors.senha ? "true" : "false"}
                     {...register("senha")}
                   />
                   <button
                     type="button"
                     onClick={() => setMostrarSenha((valor) => !valor)}
-                    className="foco-visivel absolute right-1 top-1/2 grid size-9 -translate-y-1/2 place-items-center rounded-md text-texto-fraco transition hover:bg-white/[0.06] hover:text-texto"
+                    className="foco-visivel absolute right-1 top-1/2 grid size-9 -translate-y-1/2 place-items-center rounded-md text-texto-fraco transition hover:bg-card hover:text-texto"
                     aria-label={mostrarSenha ? "Ocultar senha" : "Mostrar senha"}
                   >
                     {mostrarSenha ? <EyeOff className="size-4" /> : <Eye className="size-4" />}

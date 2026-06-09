@@ -1,9 +1,10 @@
 export function FundoAnimado() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      <div className="grade-fina absolute inset-0 opacity-70" />
-      <div className="absolute left-1/2 top-0 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(97,214,200,0.16),transparent_62%)] blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-[420px] w-[620px] rounded-full bg-[radial-gradient(circle,rgba(116,169,255,0.12),transparent_68%)] blur-3xl" />
+      <div className="absolute inset-0 padrao-vistoria opacity-70" />
+      <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,var(--principal),transparent)] opacity-60" />
+      <div className="absolute -right-24 top-20 h-[420px] w-[420px] rotate-12 border border-linha-forte opacity-30" />
+      <div className="absolute bottom-0 left-0 h-28 w-full faixas-patio opacity-20" />
     </div>
   );
 }

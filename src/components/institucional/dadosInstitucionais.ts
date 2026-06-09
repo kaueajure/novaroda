@@ -18,25 +18,25 @@ export const paginasInstitucionais = [
     href: "/",
     label: "Início",
     titulo: "Nova Roda",
-    descricao: "Visão institucional do sistema para lojas de veículos.",
+    descricao: "Operação premium para pátio, estoque e venda consultiva.",
   },
   {
     href: "/sobre",
     label: "Sobre",
     titulo: "Sobre a plataforma",
-    descricao: "Como a Nova Roda organiza a rotina comercial da loja.",
+    descricao: "Como a Nova Roda organiza pátio, atendimento e propostas.",
   },
   {
     href: "/solucoes",
     label: "Soluções",
     titulo: "Soluções para a loja",
-    descricao: "Módulos para estoque, atendimento, vendas e gestão.",
+    descricao: "Módulos para inventário, atendimento, venda e gestão.",
   },
   {
     href: "/recursos",
     label: "Recursos",
     titulo: "Recursos do sistema",
-    descricao: "Ferramentas que reduzem retrabalho e dão previsibilidade.",
+    descricao: "Ferramentas para controlar placa, KM, preço e negociação.",
   },
   {
     href: "/contato",
@@ -48,68 +48,68 @@ export const paginasInstitucionais = [
 
 export const pilaresInstitucionais = [
   {
-    titulo: "Estoque confiável",
+    titulo: "Pátio sob controle",
     descricao:
-      "Carros e motos centralizados em uma base única, com status, preço, fotos, histórico e dados comerciais.",
+      "Carros e motos organizados por placa, KM, preço, status comercial e disponibilidade real no pátio.",
     icone: CarFront,
   },
   {
-    titulo: "Atendimento organizado",
+    titulo: "Lead sem ruído",
     descricao:
-      "Clientes interessados conectados ao veículo certo, com origem do lead e etapa de atendimento visíveis.",
+      "Interessados conectados ao veículo certo, origem do portal, atendimento e próxima ação da equipe.",
     icone: UsersRound,
   },
   {
-    titulo: "Vendas no radar",
+    titulo: "Proposta rastreável",
     descricao:
-      "Oportunidades acompanhadas em funil para evitar negociações esquecidas e priorizar o que está quente.",
+      "Reserva, financiamento, negociação e fechamento em um funil simples para não perder venda quente.",
     icone: Workflow,
   },
   {
-    titulo: "Indicadores claros",
+    titulo: "Valor parado visível",
     descricao:
-      "Dashboard com valor em estoque, conversão, veículos vendidos, leads e evolução comercial.",
+      "Indicadores de valor em estoque, giro, status dos veículos, leads e conversão comercial.",
     icone: BarChart3,
   },
 ];
 
 export const solucoesInstitucionais = [
   {
-    titulo: "Gestão de veículos",
+    titulo: "Inventário de veículos",
     descricao:
-      "Cadastre, edite, filtre e acompanhe carros e motos com uma ficha completa para reduzir perguntas repetidas.",
+      "Ficha completa por veículo com placa, versão, KM, combustível, câmbio, preço, status e descrição comercial.",
     icone: FilePenLine,
   },
   {
     titulo: "Painel do lojista",
     descricao:
-      "Um painel dark, responsivo e objetivo para consultar números da loja e acessar tarefas importantes rapidamente.",
+      "Um painel escuro, denso e objetivo para consultar números da loja e agir sem abrir planilhas.",
     icone: LayoutDashboard,
   },
   {
-    titulo: "Relacionamento comercial",
+    titulo: "Venda consultiva",
     descricao:
-      "Clientes interessados, origem do contato e veículo desejado ficam visíveis para a equipe atender melhor.",
+      "Clientes, origem do contato, veículo desejado e etapa de proposta ficam claros para a equipe vender melhor.",
     icone: MessageSquareText,
   },
   {
     titulo: "Rotina escalável",
     descricao:
-      "Estrutura preparada para evoluir para API, permissões, integrações, publicação de anúncios e CRM.",
+      "Estrutura pronta para API, permissões, CRM, publicação de anúncios e integração com canais de venda.",
     icone: DatabaseZap,
   },
 ];
 
 export const recursosInstitucionais = [
-  "Cadastro completo de carros e motos",
-  "Busca por marca, modelo ou versão",
-  "Filtros por tipo, status, preço e ano",
-  "Detalhes individuais de cada veículo",
-  "Clientes interessados vinculados ao atendimento",
-  "Funil comercial com etapas de venda",
-  "Indicadores de estoque e oportunidades",
-  "Interface responsiva para desktop e celular",
-  "Feedback visual em ações importantes",
+  "Ficha completa de carro e moto",
+  "Busca por marca, modelo, versão ou placa",
+  "Filtros por tipo, status, preço, ano e disponibilidade",
+  "Detalhes individuais com KM, câmbio, combustível e preço",
+  "Clientes interessados vinculados ao veículo desejado",
+  "Funil com reserva, proposta, negociação, fechado e perdido",
+  "Indicadores de estoque, valor parado e oportunidades",
+  "Interface responsiva para mesa de venda e celular",
+  "Feedback visual em ações críticas",
   "Dados locais prontos para conexão com API",
 ];
 

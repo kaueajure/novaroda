@@ -29,7 +29,7 @@ export function PainelLojistaLayout({ children }: { children: ReactNode }) {
       />
       <div
         className={cn(
-          "min-w-0 transition-[margin] duration-200",
+          "min-w-0 transition-[margin] duration-300",
           sidebarDesktopAberta ? "lg:ml-[280px]" : "lg:ml-[84px]",
         )}
       >

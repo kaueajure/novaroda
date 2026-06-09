@@ -11,25 +11,25 @@ import { SecaoTitulo } from "@/components/marketing/SecaoTitulo";
 
 const funcionalidades = [
   {
-    titulo: "Veículos completos",
+    titulo: "Ficha de veículo",
     descricao:
-      "Carros e motos com preço, km, status, câmbio, combustível, imagem, descrição e destaque.",
+      "Carros e motos com preço, KM, placa, status, câmbio, combustível, imagem, descrição e destaque.",
     icone: <CarFront className="size-5" aria-hidden="true" />,
   },
   {
-    titulo: "Filtros úteis",
+    titulo: "Filtro de pátio",
     descricao:
-      "Busca por marca ou modelo, filtros por tipo/status e ordenação por preço, ano ou cadastro.",
+      "Busca por marca, modelo ou placa, filtros por tipo/status e ordenação por preço, ano ou cadastro.",
     icone: <Filter className="size-5" aria-hidden="true" />,
   },
   {
-    titulo: "Edição sem atrito",
+    titulo: "Edição de estoque",
     descricao:
-      "Altere dados, status e detalhes importantes sem refazer cadastros do zero.",
+      "Altere preço, status e detalhes de venda sem refazer cadastro nem duplicar informação.",
     icone: <FilePenLine className="size-5" aria-hidden="true" />,
   },
   {
-    titulo: "Clientes interessados",
+    titulo: "Leads vinculados",
     descricao:
       "Centralize contato, origem do lead, status de atendimento e veículo de interesse.",
     icone: <MessageSquareText className="size-5" aria-hidden="true" />,
@@ -37,13 +37,13 @@ const funcionalidades = [
   {
     titulo: "Funil comercial",
     descricao:
-      "Acompanhe novo interesse, atendimento, proposta, negociação, fechamento e perdas.",
+      "Acompanhe novo lead, atendimento, proposta, negociação, fechamento e perdas.",
     icone: <Workflow className="size-5" aria-hidden="true" />,
   },
   {
-    titulo: "Indicadores reais",
+    titulo: "Valor imobilizado",
     descricao:
-      "Analise estoque, vendas, conversão, oportunidades, tipos de veículo e valor imobilizado.",
+      "Analise estoque, conversão, oportunidades, tipos de veículo e valor parado.",
     icone: <BarChart3 className="size-5" aria-hidden="true" />,
   },
 ];
@@ -52,11 +52,11 @@ export function SecaoFuncionalidades() {
   return (
     <section id="funcionalidades" className="border-b border-linha bg-fundo px-4 py-20 sm:px-6 lg:px-8">
       <SecaoTitulo
-        etiqueta="Sistema completo"
-        titulo="O painel certo para operar estoque, leads e vendas no mesmo lugar."
+        etiqueta="sistema completo"
+        titulo="O painel certo para operar estoque, lead e venda no mesmo lugar."
         descricao="Cada módulo foi pensado para uma loja de veículos trabalhar com mais clareza e menos passos manuais."
       />
-      <div className="mx-auto mt-12 grid max-w-7xl gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mx-auto mt-12 grid max-w-7xl gap-3 md:grid-cols-2 xl:grid-cols-3">
         {funcionalidades.map((funcionalidade) => (
           <CardFuncionalidade key={funcionalidade.titulo} {...funcionalidade} />
         ))}

@@ -14,14 +14,14 @@ export function CardFuncionalidade({
 }) {
   return (
     <motion.article
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.2 }}
-      className="rounded-xl border border-linha bg-card p-5 shadow-[0_16px_44px_rgba(0,0,0,0.22)]"
+      whileHover={{ y: -2 }}
+      transition={{ duration: 0.18 }}
+      className="rounded-lg border border-linha bg-card p-5 transition hover:border-principal/40"
     >
-      <div className="grid size-11 place-items-center rounded-lg bg-principal/10 text-principal">
+      <div className="grid size-10 place-items-center rounded-md border border-linha bg-card-solido text-principal">
         {icone}
       </div>
-      <h3 className="mt-5 font-display text-2xl font-semibold text-texto">
+      <h3 className="mt-5 font-display text-xl font-bold text-texto">
         {titulo}
       </h3>
       <p className="mt-2 text-sm leading-6 text-texto-suave">{descricao}</p>

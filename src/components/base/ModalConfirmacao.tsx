@@ -28,7 +28,7 @@ export function ModalConfirmacao({
     <AnimatePresence>
       {aberto ? (
         <motion.div
-          className="fixed inset-0 z-50 grid place-items-center bg-black/70 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-50 grid place-items-center bg-black/76 p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -37,15 +37,15 @@ export function ModalConfirmacao({
           aria-labelledby="modal-confirmacao-titulo"
         >
           <motion.div
-            className="superficie w-full max-w-md rounded-xl p-5"
-            initial={{ opacity: 0, y: 16, scale: 0.98 }}
+            className="w-full max-w-md rounded-lg border border-linha bg-card p-5 shadow-[0_30px_100px_rgba(0,0,0,0.45)]"
+            initial={{ opacity: 0, y: 14, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.98 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.18 }}
           >
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex items-start justify-between gap-4 border-b border-linha pb-4">
               <div className="flex items-center gap-3">
-                <span className="grid size-10 place-items-center rounded-lg bg-erro/12 text-erro">
+                <span className="grid size-10 place-items-center rounded-md border border-erro/25 bg-erro/12 text-erro">
                   <AlertTriangle className="size-5" aria-hidden="true" />
                 </span>
                 <h2
@@ -58,7 +58,7 @@ export function ModalConfirmacao({
               <button
                 type="button"
                 onClick={aoFechar}
-                className="foco-visivel grid size-10 place-items-center rounded-lg text-texto-fraco transition hover:bg-white/[0.06] hover:text-texto"
+                className="foco-visivel grid size-10 place-items-center rounded-md text-texto-fraco transition hover:bg-card-solido hover:text-texto"
                 aria-label="Fechar modal"
               >
                 <X className="size-5" aria-hidden="true" />
@@ -72,7 +72,7 @@ export function ModalConfirmacao({
               <BotaoPrimario
                 type="button"
                 onClick={aoConfirmar}
-                className="bg-erro text-white shadow-none hover:bg-[#ff91a0]"
+                className="border-erro/25 bg-erro text-white shadow-none hover:bg-[#d97878]"
               >
                 {textoConfirmar}
               </BotaoPrimario>

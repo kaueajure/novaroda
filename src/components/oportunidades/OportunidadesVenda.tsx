@@ -21,34 +21,34 @@ export function OportunidadesVenda() {
 
   return (
     <ContainerPagina
-      titulo="Oportunidades de venda"
-      subtitulo="Acompanhe negociações por etapa, responsável e valor estimado em um funil simples."
+      titulo="Propostas e negociações"
+      subtitulo="Acompanhe leads por etapa, responsável, veículo desejado e valor estimado antes da negociação esfriar."
     >
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         <CardResumo
-          titulo="Oportunidades"
+          titulo="Propostas"
           valor={oportunidades.length}
-          descricao="Total no funil comercial."
+          descricao="Total registrado no funil comercial."
           icone={<Workflow className="size-5" aria-hidden="true" />}
         />
         <CardResumo
-          titulo="Em aberto"
+          titulo="Em andamento"
           valor={abertas.length}
-          descricao="Ainda dependem de atendimento."
+          descricao="Ainda dependem de atendimento ou retorno."
           icone={<Target className="size-5" aria-hidden="true" />}
           destaque="azul"
         />
         <CardResumo
-          titulo="Valor em negociação"
+          titulo="Valor em mesa"
           valor={formatarMoeda(valorAberto)}
-          descricao="Soma estimada de oportunidades abertas."
+          descricao="Soma estimada das propostas abertas."
           icone={<CircleDollarSign className="size-5" aria-hidden="true" />}
           destaque="roxo"
         />
         <CardResumo
-          titulo="Conversão"
+          titulo="Fechamento"
           valor={`${taxa}%`}
-          descricao="Fechamentos no funil."
+          descricao="Propostas concluídas como venda."
           icone={<TrendingUp className="size-5" aria-hidden="true" />}
           destaque="verde"
         />

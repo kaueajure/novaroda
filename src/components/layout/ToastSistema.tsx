@@ -30,10 +30,10 @@ export function ToastSistema() {
           initial={{ opacity: 0, y: 18, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 12, scale: 0.98 }}
-          className="fixed bottom-24 right-4 z-[60] flex w-[calc(100vw-2rem)] max-w-sm gap-3 rounded-xl border border-linha bg-card-solido/95 p-4 shadow-2xl backdrop-blur-xl lg:bottom-6"
+          className="fixed bottom-24 right-4 z-[60] flex w-[calc(100vw-2rem)] max-w-sm gap-3 rounded-lg border border-linha bg-card-solido p-4 shadow-[0_24px_80px_rgba(0,0,0,0.36)] lg:bottom-6"
           role="status"
         >
-          <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-principal/10 text-principal">
+          <span className="grid size-9 shrink-0 place-items-center rounded-md border border-principal/25 bg-principal/10 text-principal">
             <Icone className="size-5" aria-hidden="true" />
           </span>
           <div>

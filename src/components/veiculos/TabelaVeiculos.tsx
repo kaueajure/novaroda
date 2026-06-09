@@ -36,15 +36,15 @@ export function TabelaVeiculos({
       </div>
 
       <TabelaResponsiva className="hidden md:block">
-        <table className="w-full min-w-[980px] text-left text-sm">
+        <table className="w-full min-w-[1080px] text-left text-sm">
           <thead className="text-xs uppercase tracking-[0.14em] text-texto-fraco">
-            <tr className="border-b border-linha">
+            <tr className="border-b border-linha bg-card">
               <th className="px-4 py-3 font-semibold">Veículo</th>
-              <th className="px-4 py-3 font-semibold">Tipo</th>
-              <th className="px-4 py-3 font-semibold">Status</th>
+              <th className="px-4 py-3 font-semibold">Placa</th>
+              <th className="px-4 py-3 font-semibold">Situação</th>
               <th className="px-4 py-3 font-semibold">Preço</th>
-              <th className="px-4 py-3 font-semibold">Ano/Km</th>
-              <th className="px-4 py-3 font-semibold">Cadastro</th>
+              <th className="px-4 py-3 font-semibold">Ano / KM</th>
+              <th className="px-4 py-3 font-semibold">Entrada</th>
               <th className="px-4 py-3 text-right font-semibold">Ações</th>
             </tr>
           </thead>
@@ -58,27 +58,47 @@ export function TabelaVeiculos({
                       alt={`${veiculo.marca} ${veiculo.modelo}`}
                       width={160}
                       height={112}
-                      className="h-14 w-20 rounded-lg object-cover"
+                      className="h-14 w-20 rounded-md border border-linha object-cover"
                     />
-                    <div>
+                    <div className="min-w-0">
                       <p className="font-semibold text-texto">
                         {veiculo.marca} {veiculo.modelo}
                       </p>
-                      <p className="text-texto-fraco">{veiculo.versao}</p>
+                      <p className="truncate text-texto-fraco">
+                        {rotuloTipoVeiculo[veiculo.tipo]} · {veiculo.versao}
+                      </p>
                     </div>
                   </div>
                 </td>
-                <td className="px-4 py-3 text-texto-suave">
-                  {rotuloTipoVeiculo[veiculo.tipo]}
+                <td className="px-4 py-3">
+                  <span className="placa-tecnica">{veiculo.placa ?? "SEM PLACA"}</span>
                 </td>
                 <td className="px-4 py-3">
-                  <BadgeStatus status={veiculo.status} />
+                  <div className="flex items-center gap-2">
+                    <BadgeStatus status={veiculo.status} />
+                    <select
+                      value={veiculo.status}
+                      onChange={(event) =>
+                        aoAlterarStatus(veiculo.id, event.target.value as StatusVeiculo)
+                      }
+                      className="foco-visivel min-h-9 rounded-md border border-linha bg-fundo px-2 text-xs font-semibold text-texto-suave"
+                      aria-label={`Alterar status de ${veiculo.marca} ${veiculo.modelo}`}
+                    >
+                      <option value="disponivel">Disponível</option>
+                      <option value="reservado">Reservado</option>
+                      <option value="vendido">Vendido</option>
+                    </select>
+                  </div>
                 </td>
-                <td className="px-4 py-3 font-semibold text-texto">
+                <td className="numero-tecnico px-4 py-3 font-semibold text-texto">
                   {formatarMoeda(veiculo.preco)}
                 </td>
                 <td className="px-4 py-3 text-texto-suave">
-                  {veiculo.ano} · {veiculo.quilometragem.toLocaleString("pt-BR")} km
+                  <span className="numero-tecnico">{veiculo.ano}</span>
+                  <span className="text-texto-fraco"> · </span>
+                  <span className="numero-tecnico">
+                    {veiculo.quilometragem.toLocaleString("pt-BR")} km
+                  </span>
                 </td>
                 <td className="px-4 py-3 text-texto-fraco">
                   {formatarData(veiculo.dataCadastro)}
@@ -87,14 +107,14 @@ export function TabelaVeiculos({
                   <div className="flex justify-end gap-2">
                     <Link
                       href={`/painel/veiculos/${veiculo.id}`}
-                      className="foco-visivel grid size-10 place-items-center rounded-lg border border-linha text-texto-fraco transition hover:bg-white/[0.06] hover:text-texto"
+                      className="foco-visivel grid size-10 place-items-center rounded-md border border-linha text-texto-fraco transition hover:border-linha-forte hover:bg-card hover:text-texto"
                       aria-label={`Ver ${veiculo.marca} ${veiculo.modelo}`}
                     >
                       <Eye className="size-4" aria-hidden="true" />
                     </Link>
                     <Link
                       href={`/painel/veiculos/${veiculo.id}/editar`}
-                      className="foco-visivel grid size-10 place-items-center rounded-lg border border-linha text-texto-fraco transition hover:bg-white/[0.06] hover:text-texto"
+                      className="foco-visivel grid size-10 place-items-center rounded-md border border-linha text-texto-fraco transition hover:border-linha-forte hover:bg-card hover:text-texto"
                       aria-label={`Editar ${veiculo.marca} ${veiculo.modelo}`}
                     >
                       <Edit3 className="size-4" aria-hidden="true" />
@@ -102,7 +122,7 @@ export function TabelaVeiculos({
                     <button
                       type="button"
                       onClick={() => aoExcluir(veiculo)}
-                      className="foco-visivel grid size-10 place-items-center rounded-lg border border-erro/20 text-erro transition hover:bg-erro/10"
+                      className="foco-visivel grid size-10 place-items-center rounded-md border border-erro/25 text-erro transition hover:bg-erro/10"
                       aria-label={`Excluir ${veiculo.marca} ${veiculo.modelo}`}
                     >
                       <Trash2 className="size-4" aria-hidden="true" />

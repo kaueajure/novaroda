@@ -11,7 +11,7 @@ export function TabelaResponsiva({
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-xl border border-linha bg-card-solido/80",
+        "overflow-hidden rounded-lg border border-linha bg-card-solido",
         className,
       )}
     >

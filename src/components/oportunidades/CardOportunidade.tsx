@@ -24,15 +24,15 @@ export function CardOportunidade({
   aoMover: (id: string, etapa: EtapaOportunidade) => void;
 }) {
   return (
-    <article className="rounded-xl border border-linha bg-card-solido p-4 shadow-[0_12px_30px_rgba(0,0,0,0.12)]">
+    <article className="rounded-md border border-linha bg-card-solido p-3 transition hover:border-principal/30">
       <div className="flex items-start justify-between gap-3">
-        <div>
-          <h3 className="font-semibold text-texto">{oportunidade.cliente}</h3>
+        <div className="min-w-0">
+          <h3 className="truncate font-semibold text-texto">{oportunidade.cliente}</h3>
           <p className="mt-1 text-sm leading-5 text-texto-fraco">
             {oportunidade.veiculoInteresse}
           </p>
         </div>
-        <p className="shrink-0 font-display text-xl font-semibold text-principal">
+        <p className="numero-tecnico shrink-0 text-right text-sm font-semibold text-principal">
           {formatarMoeda(oportunidade.valorEstimado)}
         </p>
       </div>

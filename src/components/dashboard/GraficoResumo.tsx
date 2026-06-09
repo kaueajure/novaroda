@@ -20,18 +20,20 @@ export function GraficoResumo({
   }, []);
 
   return (
-    <section className="rounded-xl border border-linha bg-card p-5">
-      <div className="mb-5">
-        <h2 className="font-display text-2xl font-semibold text-texto">{titulo}</h2>
+    <section className="rounded-lg border border-linha bg-card p-4 sm:p-5">
+      <div className="mb-5 flex flex-col gap-1 border-b border-linha pb-4">
+        <h2 className="font-display text-xl font-semibold text-texto sm:text-2xl">
+          {titulo}
+        </h2>
         {descricao ? (
-          <p className="mt-1 text-sm text-texto-fraco">{descricao}</p>
+          <p className="text-sm leading-6 text-texto-fraco">{descricao}</p>
         ) : null}
       </div>
       <div className="h-[280px] w-full min-w-0">
         {montado ? (
           children
         ) : (
-          <div className="h-full w-full animate-pulse rounded-lg border border-linha bg-white/[0.025]" />
+          <div className="h-full w-full animate-pulse rounded-md border border-linha bg-card-solido" />
         )}
       </div>
     </section>

@@ -13,11 +13,11 @@ type CardResumoProps = {
 };
 
 const classesDestaque = {
-  principal: "text-principal bg-principal/10 border-principal/20",
-  azul: "text-azul bg-azul/10 border-azul/20",
-  verde: "text-verde bg-verde/10 border-verde/20",
-  roxo: "text-roxo bg-roxo/10 border-roxo/20",
-  alerta: "text-alerta bg-alerta/10 border-alerta/20",
+  principal: "border-principal/35 bg-principal/10 text-principal",
+  azul: "border-metal/35 bg-metal/10 text-metal",
+  verde: "border-sucesso/35 bg-sucesso/10 text-sucesso",
+  roxo: "border-aco/35 bg-aco/10 text-aco",
+  alerta: "border-alerta/35 bg-alerta/10 text-alerta",
 };
 
 export function CardResumo({
@@ -31,20 +31,23 @@ export function CardResumo({
     <motion.article
       initial={false}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -3 }}
-      transition={{ duration: 0.22 }}
-      className="rounded-xl border border-linha bg-card p-5 shadow-[0_16px_44px_rgba(0,0,0,0.2)]"
+      whileHover={{ y: -1 }}
+      transition={{ duration: 0.18 }}
+      className="relative overflow-hidden rounded-lg border border-linha bg-card p-4"
     >
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-principal/50 to-transparent" />
       <div className="flex items-start justify-between gap-3">
-        <div>
-          <p className="text-sm font-semibold text-texto-fraco">{titulo}</p>
-          <p className="mt-3 font-display text-4xl font-semibold leading-none text-texto">
+        <div className="min-w-0">
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-texto-fraco">
+            {titulo}
+          </p>
+          <p className="numero-tecnico mt-3 truncate text-[clamp(1.65rem,2.2vw,2.35rem)] font-semibold leading-none text-texto">
             {valor}
           </p>
         </div>
         <span
           className={cn(
-            "grid size-11 shrink-0 place-items-center rounded-lg border",
+            "grid size-10 shrink-0 place-items-center rounded-md border",
             classesDestaque[destaque],
           )}
         >
@@ -52,7 +55,7 @@ export function CardResumo({
         </span>
       </div>
       {descricao ? (
-        <p className="mt-4 text-sm leading-5 text-texto-suave">{descricao}</p>
+        <p className="mt-3 min-h-10 text-sm leading-5 text-texto-suave">{descricao}</p>
       ) : null}
     </motion.article>
   );

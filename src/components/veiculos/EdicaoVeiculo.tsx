@@ -17,15 +17,15 @@ export function EdicaoVeiculo() {
   if (!veiculo) {
     return (
       <ContainerPagina titulo="Veículo não encontrado">
-        <section className="rounded-xl border border-linha bg-card p-8 text-center">
+        <section className="rounded-lg border border-linha bg-card p-8 text-center">
           <p className="text-texto-suave">
-            O veículo solicitado não está mais no estoque da loja.
+            Este item não está mais no estoque operacional da loja.
           </p>
           <Link
             href="/painel/veiculos"
-            className="foco-visivel mt-5 inline-flex min-h-11 items-center justify-center rounded-lg bg-principal px-4 py-2 text-sm font-semibold text-[#051113] transition hover:bg-[#76eadc]"
+            className="foco-visivel mt-5 inline-flex min-h-11 items-center justify-center rounded-md bg-principal px-4 py-2 text-sm font-semibold text-[#14110a] transition hover:bg-principal-forte"
           >
-            Voltar para veículos
+            Voltar para estoque
           </Link>
         </section>
       </ContainerPagina>
@@ -40,8 +40,8 @@ export function EdicaoVeiculo() {
 
   return (
     <ContainerPagina
-      titulo="Editar veículo"
-      subtitulo={`Atualize os dados de ${veiculo.marca} ${veiculo.modelo}.`}
+      titulo="Editar ficha do veículo"
+      subtitulo={`Revise preço, status, KM e observações comerciais de ${veiculo.marca} ${veiculo.modelo}.`}
     >
       <FormularioVeiculo modo="edicao" veiculo={veiculo} aoSalvar={salvar} />
     </ContainerPagina>

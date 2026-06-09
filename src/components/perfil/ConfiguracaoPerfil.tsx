@@ -50,17 +50,18 @@ export function ConfiguracaoPerfil() {
 
   return (
     <ContainerPagina
-      titulo="Configurar perfil"
-      subtitulo="Atualize os dados do lojista e as informações básicas exibidas no painel."
+      titulo="Perfil da operação"
+      subtitulo="Ajuste o lojista responsável e os dados da loja exibidos no painel Nova Roda."
     >
       <form onSubmit={salvarPerfil} className="grid gap-5 xl:grid-cols-[0.75fr_1.25fr]">
-        <aside className="rounded-xl border border-linha bg-card p-5">
-          <div className="flex items-center gap-4">
-            <span className="grid size-16 place-items-center rounded-2xl border border-principal/25 bg-principal/12 font-display text-2xl font-bold text-principal">
+        <aside className="rounded-lg border border-linha bg-card p-5">
+          <p className="etiqueta-metal">Identificação</p>
+          <div className="mt-4 flex items-center gap-4">
+            <span className="grid size-16 place-items-center rounded-md border border-principal/35 bg-card-solido font-display text-2xl font-bold text-principal">
               {avatarPreview}
             </span>
-            <div>
-              <p className="font-display text-2xl font-semibold text-texto">
+            <div className="min-w-0">
+              <p className="truncate font-display text-2xl font-semibold text-texto">
                 {nome || "Lojista"}
               </p>
               <p className="text-sm text-texto-fraco">{cargo || "Administrador"}</p>
@@ -68,28 +69,28 @@ export function ConfiguracaoPerfil() {
           </div>
 
           <div className="mt-6 grid gap-3 text-sm text-texto-suave">
-            <p className="flex items-center gap-3 rounded-lg border border-linha bg-white/[0.03] p-3">
+            <p className="flex items-center gap-3 rounded-md border border-linha bg-card-solido p-3">
               <Mail className="size-4 text-principal" aria-hidden="true" />
               {email || "E-mail não informado"}
             </p>
-            <p className="flex items-center gap-3 rounded-lg border border-linha bg-white/[0.03] p-3">
+            <p className="flex items-center gap-3 rounded-md border border-linha bg-card-solido p-3">
               <Building2 className="size-4 text-principal" aria-hidden="true" />
               {nomeLoja || "Minha loja"}
             </p>
           </div>
         </aside>
 
-        <section className="rounded-xl border border-linha bg-card p-5">
+        <section className="rounded-lg border border-linha bg-card p-5">
           <div className="flex items-center gap-3 border-b border-linha pb-4">
-            <span className="grid size-11 place-items-center rounded-xl border border-principal/25 bg-principal/10 text-principal">
+            <span className="grid size-11 place-items-center rounded-md border border-principal/30 bg-card-solido text-principal">
               <UserRound className="size-5" aria-hidden="true" />
             </span>
             <div>
               <h2 className="font-display text-2xl font-semibold text-texto">
-                Dados do perfil
+                Dados do lojista
               </h2>
               <p className="text-sm text-texto-fraco">
-                Essas informações aparecem no painel e na sidebar.
+                Essas informações aparecem na sidebar e no cabeçalho operacional.
               </p>
             </div>
           </div>
@@ -112,7 +113,7 @@ export function ConfiguracaoPerfil() {
               onChange={(event) => setEmail(event.target.value)}
             />
             <CampoTexto
-              label="Iniciais da foto"
+              label="Iniciais do avatar"
               maxLength={2}
               value={avatar}
               onChange={(event) => setAvatar(normalizarAvatar(event.target.value))}

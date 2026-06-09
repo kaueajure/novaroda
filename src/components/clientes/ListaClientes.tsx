@@ -4,12 +4,13 @@ import type { Cliente } from "@/types/Cliente";
 export function ListaClientes({ clientes }: { clientes: Cliente[] }) {
   if (clientes.length === 0) {
     return (
-      <section className="rounded-xl border border-dashed border-linha-forte bg-card p-10 text-center">
+      <section className="rounded-lg border border-dashed border-linha-forte bg-card p-10 text-center">
         <p className="font-display text-3xl font-semibold text-texto">
-          Nenhum interessado encontrado.
+          Nenhum interessado na carteira.
         </p>
         <p className="mx-auto mt-2 max-w-md text-texto-suave">
-          Ajuste a busca ou cadastre um novo cliente interessado.
+          Registre o lead recebido no WhatsApp, portal, loja física ou indicação
+          para manter a venda no radar.
         </p>
       </section>
     );

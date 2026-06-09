@@ -18,7 +18,7 @@ export function filtrarVeiculos(
   return [...veiculos]
     .filter((veiculo) => {
       const correspondeBusca = busca
-        ? `${veiculo.marca} ${veiculo.modelo} ${veiculo.versao}`
+        ? `${veiculo.marca} ${veiculo.modelo} ${veiculo.versao} ${veiculo.placa ?? ""}`
             .toLowerCase()
             .includes(busca)
         : true;

@@ -38,15 +38,15 @@ export function ListaVeiculos() {
 
   return (
     <ContainerPagina
-      titulo="Gerenciamento de veículos"
-      subtitulo="Liste, filtre, cadastre, edite e acompanhe carros e motos disponíveis na loja."
+      titulo="Estoque do pátio"
+      subtitulo="Controle placa, KM, preço, status comercial e entrada de carros e motos sem depender de planilhas."
       acao={
         <Link
           href="/painel/veiculos/novo"
-          className="foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-principal px-4 py-2 text-sm font-semibold text-[#051113] shadow-[0_10px_30px_rgba(97,214,200,0.18)] transition duration-200 hover:bg-[#76eadc]"
+          className="foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-principal px-4 py-2 text-sm font-semibold text-[#14110a] transition duration-200 hover:bg-principal-forte"
         >
           <FilePlus2 className="size-4" aria-hidden="true" />
-          Cadastrar veículo
+          Inventariar veículo
         </Link>
       }
     >
@@ -62,17 +62,17 @@ export function ListaVeiculos() {
             }
           />
         ) : (
-          <section className="rounded-xl border border-dashed border-linha-forte bg-card p-10 text-center">
+          <section className="rounded-lg border border-dashed border-linha-forte bg-card p-10 text-center">
             <p className="font-display text-3xl font-semibold text-texto">
-              Nenhum veículo encontrado.
+              Nenhum veículo no pátio.
             </p>
             <p className="mx-auto mt-2 max-w-md text-texto-suave">
-              Ajuste os filtros ou cadastre seu primeiro veículo para começar a
-              organizar seu estoque.
+              Cadastre o primeiro carro ou moto para começar a controlar valor parado,
+              disponibilidade e propostas.
             </p>
             <Link href="/painel/veiculos/novo" className="mt-6 inline-flex">
-              <span className="foco-visivel inline-flex min-h-11 items-center justify-center rounded-lg bg-principal px-4 py-2 text-sm font-semibold text-[#051113] transition hover:bg-[#76eadc]">
-                Cadastrar veículo
+              <span className="foco-visivel inline-flex min-h-11 items-center justify-center rounded-md bg-principal px-4 py-2 text-sm font-semibold text-[#14110a] transition hover:bg-principal-forte">
+                Inventariar primeiro veículo
               </span>
             </Link>
           </section>
@@ -81,13 +81,13 @@ export function ListaVeiculos() {
 
       <ModalConfirmacao
         aberto={Boolean(veiculoParaExcluir)}
-        titulo="Excluir veículo?"
+        titulo="Remover veículo do pátio?"
         descricao={`Esta ação remove ${
           veiculoParaExcluir
             ? `${veiculoParaExcluir.marca} ${veiculoParaExcluir.modelo}`
             : "este veículo"
-        } do estoque da loja.`}
-        textoConfirmar="Excluir"
+        } do estoque operacional da loja.`}
+        textoConfirmar="Remover"
         aoConfirmar={confirmarExclusao}
         aoFechar={() => setVeiculoParaExcluir(null)}
       />

@@ -16,7 +16,7 @@ export function BotaoSecundario({
   return (
     <button
       className={cn(
-        "foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-linha bg-white/[0.03] px-4 py-2 text-sm font-semibold text-texto-suave transition duration-200 hover:border-linha-forte hover:bg-white/[0.07] hover:text-texto active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50",
+        "foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-linha bg-card-solido px-4 py-2 text-sm font-semibold text-texto-suave transition duration-200 hover:border-linha-forte hover:bg-fundo-elevado hover:text-texto active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
       {...props}

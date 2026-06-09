@@ -17,8 +17,8 @@ export function CadastroVeiculo() {
 
   return (
     <ContainerPagina
-      titulo="Cadastrar veículo"
-      subtitulo="Inclua carro ou moto com informações completas para reduzir dúvidas no atendimento."
+      titulo="Inventariar veículo"
+      subtitulo="Abra uma ficha de entrada com placa, KM, versão, preço anunciado, status e observações de venda."
     >
       <FormularioVeiculo modo="cadastro" aoSalvar={salvar} />
     </ContainerPagina>

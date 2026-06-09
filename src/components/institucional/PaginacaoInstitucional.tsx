@@ -15,7 +15,7 @@ export function PaginacaoInstitucional({ atual }: { atual: string }) {
           {anterior ? (
             <Link
               href={anterior.href}
-              className="foco-visivel inline-flex min-h-11 items-center gap-2 rounded-lg border border-linha bg-white/[0.03] px-4 text-sm font-bold text-texto-suave transition hover:bg-white/[0.07] hover:text-texto"
+              className="foco-visivel inline-flex min-h-11 items-center gap-2 rounded-md border border-linha bg-card-solido px-4 text-sm font-bold text-texto-suave transition hover:border-linha-forte hover:text-texto"
             >
               <ArrowLeft className="size-4" aria-hidden="true" />
               {anterior.label}
@@ -30,8 +30,8 @@ export function PaginacaoInstitucional({ atual }: { atual: string }) {
               href={pagina.href}
               aria-current={pagina.href === atual ? "page" : undefined}
               className={cn(
-                "foco-visivel grid size-10 place-items-center rounded-lg border border-linha text-sm font-bold text-texto-fraco transition hover:bg-white/[0.06] hover:text-texto",
-                pagina.href === atual && "border-principal/35 bg-principal/10 text-principal",
+                "foco-visivel grid size-10 place-items-center rounded-md border border-linha text-sm font-bold text-texto-fraco transition hover:bg-card-solido hover:text-texto",
+                pagina.href === atual && "border-principal/35 bg-card-solido text-principal",
               )}
             >
               {indice + 1}
@@ -43,7 +43,7 @@ export function PaginacaoInstitucional({ atual }: { atual: string }) {
           {proxima ? (
             <Link
               href={proxima.href}
-              className="foco-visivel inline-flex min-h-11 items-center gap-2 rounded-lg bg-principal px-4 text-sm font-bold text-[#051113] transition hover:bg-[#76eadc]"
+              className="foco-visivel inline-flex min-h-11 items-center gap-2 rounded-md border border-principal/40 bg-principal px-4 text-sm font-bold text-[#12100a] transition hover:bg-principal-forte"
             >
               {proxima.label}
               <ArrowRight className="size-4" aria-hidden="true" />

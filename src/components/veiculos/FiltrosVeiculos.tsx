@@ -11,11 +11,19 @@ type FiltrosVeiculosProps = {
 
 export function FiltrosVeiculos({ filtros, aoAlterar }: FiltrosVeiculosProps) {
   return (
-    <section className="rounded-xl border border-linha bg-card p-4">
+    <section className="rounded-lg border border-linha bg-card p-4">
+      <div className="mb-4 flex items-center justify-between gap-3 border-b border-linha pb-3">
+        <div>
+          <p className="etiqueta-metal">Filtro de pátio</p>
+          <p className="mt-2 text-sm text-texto-fraco">
+            Encontre por placa, modelo, versão, status ou faixa de preço.
+          </p>
+        </div>
+      </div>
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-[1fr_180px_180px_220px]">
         <CampoTexto
           label="Buscar"
-          placeholder="Marca, modelo ou versão"
+          placeholder="Marca, modelo, versão ou placa"
           value={filtros.busca}
           onChange={(event) => aoAlterar({ ...filtros, busca: event.target.value })}
         />
@@ -58,7 +66,7 @@ export function FiltrosVeiculos({ filtros, aoAlterar }: FiltrosVeiculosProps) {
             })
           }
         >
-          <option value="recentes">Mais recentes</option>
+          <option value="recentes">Entradas recentes</option>
           <option value="preco_desc">Maior preço</option>
           <option value="preco_asc">Menor preço</option>
           <option value="ano_desc">Ano mais novo</option>

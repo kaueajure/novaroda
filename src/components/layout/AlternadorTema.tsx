@@ -14,7 +14,7 @@ export function AlternadorTema({ className }: { className?: string }) {
       type="button"
       onClick={alternarTema}
       className={cn(
-        "foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-linha bg-white/[0.03] px-3 text-sm font-bold text-texto-suave transition hover:bg-white/[0.08] hover:text-texto",
+        "foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-linha bg-card-solido px-3 text-sm font-bold text-texto-suave transition hover:border-principal/35 hover:text-texto",
         className,
       )}
       aria-label={claro ? "Mudar para tema escuro" : "Mudar para tema claro"}

@@ -74,12 +74,13 @@ export function ClientesInteressados() {
 
   return (
     <ContainerPagina
-      titulo="Clientes e interessados"
-      subtitulo="Centralize leads, contatos, origem e veículo de interesse para não perder oportunidades."
+      titulo="Leads e interessados"
+      subtitulo="Organize contatos por origem, veículo desejado e estágio de atendimento antes que o lead esfrie."
     >
       <div className="grid gap-5 xl:grid-cols-[360px_1fr]">
-        <aside className="rounded-xl border border-linha bg-card p-5">
-          <h2 className="font-display text-2xl font-semibold text-texto">
+        <aside className="rounded-lg border border-linha bg-card p-5">
+          <p className="etiqueta-metal">Entrada de lead</p>
+          <h2 className="mt-3 font-display text-2xl font-semibold text-texto">
             Novo interessado
           </h2>
           <form onSubmit={handleSubmit(cadastrar)} className="mt-5 space-y-4" noValidate>
@@ -98,6 +99,7 @@ export function ClientesInteressados() {
             />
             <CampoTexto
               label="Veículo de interesse"
+              placeholder="Ex.: Corolla XEi 2022"
               erro={errors.veiculoInteresse?.message}
               {...register("veiculoInteresse")}
             />
@@ -121,13 +123,13 @@ export function ClientesInteressados() {
               icone={<UserPlus className="size-4" aria-hidden="true" />}
               className="w-full"
             >
-              Cadastrar interessado
+              Registrar lead
             </BotaoPrimario>
           </form>
         </aside>
 
         <section className="space-y-5">
-          <div className="rounded-xl border border-linha bg-card p-4">
+          <div className="rounded-lg border border-linha bg-card p-4">
             <div className="grid gap-4 md:grid-cols-[1fr_220px]">
               <CampoTexto
                 label="Buscar cliente"
