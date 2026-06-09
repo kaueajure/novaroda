@@ -25,7 +25,7 @@ export function CabecalhoPainel({
     >
       <a
         href="#conteudo"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-principal focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#14110a]"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-principal focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[var(--principal-contraste)]"
       >
         Ir para conteúdo
       </a>

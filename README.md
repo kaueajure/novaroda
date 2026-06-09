@@ -40,7 +40,7 @@ npm run build
 - `/recursos` - Recursos implementados e possíveis evoluções.
 - `/contato` - Contato institucional para interessados.
 
-O site público usa navegação por páginas e paginação institucional no rodapé de cada rota pública. A experiência não depende de uma landing page única nem de elemento 3D no hero.
+O site público usa navegação por páginas e paginação institucional no rodapé de cada rota pública. A experiência não depende de uma página única de venda nem de elemento 3D no hero.
 
 ## Painel do lojista
 

@@ -1,27 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #050505;
-  --foreground: #f4f1ea;
-  --fundo: #050505;
-  --fundo-elevado: #0b0c0c;
-  --fundo-card: #111312;
-  --fundo-card-solido: #151716;
-  --linha: rgba(188, 181, 166, 0.16);
-  --linha-forte: rgba(210, 199, 178, 0.31);
-  --texto: #f4f1ea;
-  --texto-suave: #c9c2b4;
-  --texto-fraco: #8f897d;
-  --principal: #c7a76a;
-  --principal-forte: #e0c385;
-  --azul: #8ea0aa;
-  --roxo: #a79582;
-  --verde: #8aa678;
-  --alerta: #d7a85b;
-  --erro: #d87163;
-  --sucesso: #8aa678;
-  --metal: #aeb4b6;
-  --asfalto: #090a09;
+  --background: #06080d;
+  --foreground: #f4f8ff;
+  --fundo: #06080d;
+  --fundo-gradiente: #080d14;
+  --fundo-elevado: #0b1018;
+  --fundo-card: #101823;
+  --fundo-card-solido: #151f2d;
+  --linha: rgba(154, 177, 205, 0.18);
+  --linha-forte: rgba(116, 181, 255, 0.34);
+  --texto: #f4f8ff;
+  --texto-suave: #c1ccdc;
+  --texto-fraco: #8291a6;
+  --principal: #4da3ff;
+  --principal-forte: #78c4ff;
+  --principal-contraste: #04111f;
+  --azul: #86d9ff;
+  --roxo: #8f9bff;
+  --verde: #4ade80;
+  --alerta: #f5c542;
+  --erro: #ff6b7a;
+  --sucesso: #4ade80;
+  --metal: #d7e1ec;
+  --asfalto: #080b10;
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
@@ -29,28 +31,30 @@
 }
 
 [data-theme="light"] {
-  --background: #eeeae1;
-  --foreground: #151515;
-  --fundo: #eeeae1;
-  --fundo-elevado: #f8f5ee;
-  --fundo-card: #fffdf8;
-  --fundo-card-solido: #fffdf8;
-  --linha: rgba(37, 37, 33, 0.14);
-  --linha-forte: rgba(37, 37, 33, 0.28);
-  --texto: #151515;
-  --texto-suave: #3d3a34;
-  --texto-fraco: #736d60;
-  --principal: #8b6629;
-  --principal-forte: #6f511f;
-  --azul: #52646d;
-  --roxo: #756555;
-  --verde: #4f6f3e;
-  --alerta: #9d6b1e;
-  --erro: #b84639;
-  --sucesso: #4f6f3e;
-  --metal: #6a7072;
-  --asfalto: #f6f2e9;
-  --sombra-card: 0 18px 50px rgba(37, 37, 33, 0.12);
+  --background: #f5f8fc;
+  --foreground: #101722;
+  --fundo: #f5f8fc;
+  --fundo-gradiente: #e9eff7;
+  --fundo-elevado: #ffffff;
+  --fundo-card: #ffffff;
+  --fundo-card-solido: #eef4fb;
+  --linha: rgba(20, 35, 54, 0.12);
+  --linha-forte: rgba(29, 108, 205, 0.26);
+  --texto: #101722;
+  --texto-suave: #344256;
+  --texto-fraco: #667589;
+  --principal: #0b67d8;
+  --principal-forte: #084fa8;
+  --principal-contraste: #ffffff;
+  --azul: #0d8fd3;
+  --roxo: #5562d6;
+  --verde: #1c8f52;
+  --alerta: #9a6a00;
+  --erro: #bf3043;
+  --sucesso: #1c8f52;
+  --metal: #4b5b6b;
+  --asfalto: #e9eff7;
+  --sombra-card: 0 18px 50px rgba(20, 35, 54, 0.11);
 }
 
 @theme inline {
@@ -67,6 +71,7 @@
   --color-texto-fraco: var(--texto-fraco);
   --color-principal: var(--principal);
   --color-principal-forte: var(--principal-forte);
+  --color-principal-contraste: var(--principal-contraste);
   --color-azul: var(--azul);
   --color-roxo: var(--roxo);
   --color-verde: var(--verde);
@@ -86,8 +91,8 @@
 
 body {
   background:
-    radial-gradient(circle at 12% -10%, rgba(199, 167, 106, 0.08), transparent 28rem),
-    linear-gradient(180deg, var(--fundo), #080807 44rem, var(--fundo));
+    radial-gradient(circle at 12% -10%, rgba(77, 163, 255, 0.12), transparent 28rem),
+    linear-gradient(180deg, var(--fundo), var(--fundo-gradiente) 44rem, var(--fundo));
   color: var(--foreground);
   font-family: var(--font-corpo), sans-serif;
   min-height: 100dvh;
@@ -118,7 +123,7 @@ a {
 }
 
 ::selection {
-  background: rgba(199, 167, 106, 0.28);
+  background: rgba(77, 163, 255, 0.28);
   color: var(--texto);
 }
 
@@ -132,13 +137,13 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(188, 181, 166, 0.32);
+  background: rgba(154, 177, 205, 0.32);
   border: 2px solid var(--fundo);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(199, 167, 106, 0.48);
+  background: rgba(77, 163, 255, 0.48);
 }
 
 .foco-visivel {
@@ -147,8 +152,8 @@ a {
 }
 
 .foco-visivel:focus-visible {
-  box-shadow: 0 0 0 3px rgba(199, 167, 106, 0.34);
-  border-color: rgba(224, 195, 133, 0.9);
+  box-shadow: 0 0 0 3px rgba(77, 163, 255, 0.34);
+  border-color: rgba(120, 196, 255, 0.9);
 }
 
 .text-balance {
@@ -166,8 +171,8 @@ a {
 .grade-fina,
 .padrao-vistoria {
   background-image:
-    linear-gradient(rgba(188, 181, 166, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(188, 181, 166, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(154, 177, 205, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(154, 177, 205, 0.055) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), transparent 88%);
 }
@@ -176,8 +181,8 @@ a {
   background-image:
     repeating-linear-gradient(
       115deg,
-      rgba(199, 167, 106, 0.16) 0,
-      rgba(199, 167, 106, 0.16) 1px,
+      rgba(77, 163, 255, 0.16) 0,
+      rgba(77, 163, 255, 0.16) 1px,
       transparent 1px,
       transparent 18px
     );

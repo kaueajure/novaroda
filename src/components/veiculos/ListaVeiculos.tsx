@@ -43,7 +43,7 @@ export function ListaVeiculos() {
       acao={
         <Link
           href="/painel/veiculos/novo"
-          className="foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-principal px-4 py-2 text-sm font-semibold text-[#14110a] transition duration-200 hover:bg-principal-forte"
+          className="foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-principal px-4 py-2 text-sm font-semibold text-[var(--principal-contraste)] transition duration-200 hover:bg-principal-forte"
         >
           <FilePlus2 className="size-4" aria-hidden="true" />
           Inventariar veículo
@@ -71,7 +71,7 @@ export function ListaVeiculos() {
               disponibilidade e propostas.
             </p>
             <Link href="/painel/veiculos/novo" className="mt-6 inline-flex">
-              <span className="foco-visivel inline-flex min-h-11 items-center justify-center rounded-md bg-principal px-4 py-2 text-sm font-semibold text-[#14110a] transition hover:bg-principal-forte">
+              <span className="foco-visivel inline-flex min-h-11 items-center justify-center rounded-md bg-principal px-4 py-2 text-sm font-semibold text-[var(--principal-contraste)] transition hover:bg-principal-forte">
                 Inventariar primeiro veículo
               </span>
             </Link>

@@ -38,7 +38,7 @@ export function PreviaDashboard() {
             </div>
             <Link
               href="/login"
-              className="foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-principal/40 bg-principal px-4 text-sm font-bold text-[#12100a] transition hover:bg-principal-forte"
+              className="foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-principal/40 bg-principal px-4 text-sm font-bold text-[var(--principal-contraste)] transition hover:bg-principal-forte"
             >
               Acessar painel
               <ArrowRight className="size-4" aria-hidden="true" />

@@ -49,7 +49,7 @@ export function CabecalhoSite() {
           <AlternadorTema className="hidden sm:inline-flex" />
           <Link
             href="/login"
-            className="foco-visivel hidden min-h-11 items-center justify-center gap-2 rounded-md border border-principal/40 bg-principal px-4 text-sm font-bold text-[#12100a] transition hover:bg-principal-forte sm:inline-flex"
+            className="foco-visivel hidden min-h-11 items-center justify-center gap-2 rounded-md border border-principal/40 bg-principal px-4 text-sm font-bold text-[var(--principal-contraste)] transition hover:bg-principal-forte sm:inline-flex"
           >
             Acessar painel
             <ArrowRight className="size-4" aria-hidden="true" />
@@ -89,7 +89,7 @@ export function CabecalhoSite() {
             <Link
               href="/login"
               onClick={() => setAberto(false)}
-              className="foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-principal/40 bg-principal px-4 text-sm font-bold text-[#12100a]"
+              className="foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-principal/40 bg-principal px-4 text-sm font-bold text-[var(--principal-contraste)]"
             >
               Acessar painel
               <ArrowRight className="size-4" aria-hidden="true" />

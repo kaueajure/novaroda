@@ -23,7 +23,7 @@ export function EdicaoVeiculo() {
           </p>
           <Link
             href="/painel/veiculos"
-            className="foco-visivel mt-5 inline-flex min-h-11 items-center justify-center rounded-md bg-principal px-4 py-2 text-sm font-semibold text-[#14110a] transition hover:bg-principal-forte"
+            className="foco-visivel mt-5 inline-flex min-h-11 items-center justify-center rounded-md bg-principal px-4 py-2 text-sm font-semibold text-[var(--principal-contraste)] transition hover:bg-principal-forte"
           >
             Voltar para estoque
           </Link>

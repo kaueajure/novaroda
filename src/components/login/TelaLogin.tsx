@@ -32,8 +32,8 @@ export function TelaLogin() {
   } = useForm<DadosLogin>({
     resolver: zodResolver(schemaLogin),
     defaultValues: {
-      email: "paulo@novaroda.demo",
-      senha: "demo123",
+      email: "paulo@novaroda.com.br",
+      senha: "novaroda",
     },
   });
 

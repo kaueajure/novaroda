@@ -35,7 +35,7 @@ import { rotuloTipoVeiculo } from "@/utils/rotulos";
 
 const tooltipOperacional = {
   background: "var(--fundo-card-solido)",
-  border: "1px solid rgba(199,167,106,0.28)",
+  border: "1px solid rgba(77,163,255,0.28)",
   borderRadius: 8,
   color: "var(--texto)",
 };
@@ -61,7 +61,7 @@ export function DashboardPrincipal() {
       acao={
         <Link
           href="/painel/veiculos/novo"
-          className="foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-principal px-4 py-2 text-sm font-bold text-[#14110a] transition hover:bg-principal-forte"
+          className="foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-principal px-4 py-2 text-sm font-bold text-[var(--principal-contraste)] transition hover:bg-principal-forte"
         >
           <FilePlus2 className="size-4" aria-hidden="true" />
           Inventariar veículo
@@ -135,22 +135,22 @@ export function DashboardPrincipal() {
             <AreaChart data={evolucaoComercial} margin={{ left: -18, right: 8, top: 10 }}>
               <defs>
                 <linearGradient id="corVendasPainel" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#c7a76a" stopOpacity={0.38} />
-                  <stop offset="95%" stopColor="#c7a76a" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#4da3ff" stopOpacity={0.38} />
+                  <stop offset="95%" stopColor="#4da3ff" stopOpacity={0} />
                 </linearGradient>
                 <linearGradient id="corOportunidadesPainel" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#8ea0aa" stopOpacity={0.28} />
-                  <stop offset="95%" stopColor="#8ea0aa" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#86d9ff" stopOpacity={0.24} />
+                  <stop offset="95%" stopColor="#86d9ff" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <CartesianGrid stroke="rgba(188,181,166,0.13)" vertical={false} />
-              <XAxis dataKey="mes" stroke="#8f918c" tickLine={false} axisLine={false} />
-              <YAxis stroke="#8f918c" tickLine={false} axisLine={false} />
+              <CartesianGrid stroke="rgba(154,177,205,0.15)" vertical={false} />
+              <XAxis dataKey="mes" stroke="#8fa1b5" tickLine={false} axisLine={false} />
+              <YAxis stroke="#8fa1b5" tickLine={false} axisLine={false} />
               <Tooltip contentStyle={tooltipOperacional} />
               <Area
                 type="monotone"
                 dataKey="oportunidades"
-                stroke="#8ea0aa"
+                stroke="#86d9ff"
                 fill="url(#corOportunidadesPainel)"
                 strokeWidth={2}
                 isAnimationActive={false}
@@ -158,7 +158,7 @@ export function DashboardPrincipal() {
               <Area
                 type="monotone"
                 dataKey="vendas"
-                stroke="#c7a76a"
+                stroke="#4da3ff"
                 fill="url(#corVendasPainel)"
                 strokeWidth={2}
                 isAnimationActive={false}

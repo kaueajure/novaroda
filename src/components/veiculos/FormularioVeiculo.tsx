@@ -214,7 +214,7 @@ export function FormularioVeiculo({
         <label className="mt-4 flex min-h-11 items-center gap-3 rounded-md border border-linha bg-card-solido px-3 text-sm font-semibold text-texto-suave">
           <input
             type="checkbox"
-            className="size-4 rounded border-linha accent-[#c7a76a]"
+            className="size-4 rounded border-linha accent-[#4da3ff]"
             {...register("destaque")}
           />
           Marcar como vitrine da loja

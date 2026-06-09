@@ -28,11 +28,11 @@ import {
   rotuloTipoVeiculo,
 } from "@/utils/rotulos";
 
-const cores = ["#c7a76a", "#8ea0aa", "#6f7776", "#7aa383", "#c08b5b", "#d97878"];
+const cores = ["#4da3ff", "#86d9ff", "#8f9bff", "#4ade80", "#f5c542", "#ff6b7a"];
 
 const tooltip = {
   background: "var(--fundo-card-solido)",
-  border: "1px solid rgba(199,167,106,0.28)",
+  border: "1px solid rgba(77,163,255,0.28)",
   borderRadius: 8,
   color: "var(--texto)",
 };
@@ -122,9 +122,9 @@ export function EstatisticasLoja() {
         <GraficoResumo titulo="Status do estoque" descricao="Disponível, reservado e vendido para leitura rápida de disponibilidade.">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={porStatus} margin={{ left: -18, right: 8, top: 10 }}>
-              <CartesianGrid stroke="rgba(188,181,166,0.13)" vertical={false} />
-              <XAxis dataKey="nome" stroke="#8f918c" tickLine={false} axisLine={false} />
-              <YAxis stroke="#8f918c" tickLine={false} axisLine={false} allowDecimals={false} />
+              <CartesianGrid stroke="rgba(154,177,205,0.15)" vertical={false} />
+              <XAxis dataKey="nome" stroke="#8fa1b5" tickLine={false} axisLine={false} />
+              <YAxis stroke="#8fa1b5" tickLine={false} axisLine={false} allowDecimals={false} />
               <Tooltip contentStyle={tooltip} />
               <Bar dataKey="valor" radius={[4, 4, 0, 0]} isAnimationActive={false}>
                 {porStatus.map((_, index) => (
@@ -140,16 +140,16 @@ export function EstatisticasLoja() {
             <AreaChart data={evolucaoComercial} margin={{ left: -18, right: 8, top: 10 }}>
               <defs>
                 <linearGradient id="estatisticaVendas" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#c7a76a" stopOpacity={0.38} />
-                  <stop offset="95%" stopColor="#c7a76a" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#4da3ff" stopOpacity={0.38} />
+                  <stop offset="95%" stopColor="#4da3ff" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <CartesianGrid stroke="rgba(188,181,166,0.13)" vertical={false} />
-              <XAxis dataKey="mes" stroke="#8f918c" tickLine={false} axisLine={false} />
-              <YAxis stroke="#8f918c" tickLine={false} axisLine={false} allowDecimals={false} />
+              <CartesianGrid stroke="rgba(154,177,205,0.15)" vertical={false} />
+              <XAxis dataKey="mes" stroke="#8fa1b5" tickLine={false} axisLine={false} />
+              <YAxis stroke="#8fa1b5" tickLine={false} axisLine={false} allowDecimals={false} />
               <Tooltip contentStyle={tooltip} />
-              <Area type="monotone" dataKey="vendas" stroke="#c7a76a" fill="url(#estatisticaVendas)" strokeWidth={2} isAnimationActive={false} />
-              <Area type="monotone" dataKey="oportunidades" stroke="#8ea0aa" fill="transparent" strokeWidth={2} isAnimationActive={false} />
+              <Area type="monotone" dataKey="vendas" stroke="#4da3ff" fill="url(#estatisticaVendas)" strokeWidth={2} isAnimationActive={false} />
+              <Area type="monotone" dataKey="oportunidades" stroke="#86d9ff" fill="transparent" strokeWidth={2} isAnimationActive={false} />
             </AreaChart>
           </ResponsiveContainer>
         </GraficoResumo>
@@ -157,9 +157,9 @@ export function EstatisticasLoja() {
         <GraficoResumo titulo="Propostas por etapa" descricao="Onde o atendimento comercial está acumulando negociação.">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={porEtapa} layout="vertical" margin={{ left: 36, right: 8, top: 10 }}>
-              <CartesianGrid stroke="rgba(188,181,166,0.13)" horizontal={false} />
-              <XAxis type="number" stroke="#8f918c" tickLine={false} axisLine={false} allowDecimals={false} />
-              <YAxis type="category" dataKey="nome" stroke="#8f918c" tickLine={false} axisLine={false} width={118} />
+              <CartesianGrid stroke="rgba(154,177,205,0.15)" horizontal={false} />
+              <XAxis type="number" stroke="#8fa1b5" tickLine={false} axisLine={false} allowDecimals={false} />
+              <YAxis type="category" dataKey="nome" stroke="#8fa1b5" tickLine={false} axisLine={false} width={118} />
               <Tooltip contentStyle={tooltip} />
               <Bar dataKey="valor" radius={[0, 4, 4, 0]} isAnimationActive={false}>
                 {porEtapa.map((_, index) => (
@@ -174,11 +174,11 @@ export function EstatisticasLoja() {
           <GraficoResumo titulo="Entradas no pátio" descricao="Veículos cadastrados por mês para medir crescimento e giro do estoque.">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={cadastrosMensais} margin={{ left: -18, right: 8, top: 10 }}>
-                <CartesianGrid stroke="rgba(188,181,166,0.13)" vertical={false} />
-                <XAxis dataKey="nome" stroke="#8f918c" tickLine={false} axisLine={false} />
-                <YAxis stroke="#8f918c" tickLine={false} axisLine={false} allowDecimals={false} />
+                <CartesianGrid stroke="rgba(154,177,205,0.15)" vertical={false} />
+                <XAxis dataKey="nome" stroke="#8fa1b5" tickLine={false} axisLine={false} />
+                <YAxis stroke="#8fa1b5" tickLine={false} axisLine={false} allowDecimals={false} />
                 <Tooltip contentStyle={tooltip} />
-                <Bar dataKey="valor" fill="#c7a76a" radius={[4, 4, 0, 0]} isAnimationActive={false} />
+                <Bar dataKey="valor" fill="#4da3ff" radius={[4, 4, 0, 0]} isAnimationActive={false} />
               </BarChart>
             </ResponsiveContainer>
           </GraficoResumo>

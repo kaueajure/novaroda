@@ -20,7 +20,7 @@ export function BotaoPrimario({
   return (
     <button
       className={cn(
-        "foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-principal/40 bg-principal px-4 py-2 text-sm font-bold text-[#12100a] shadow-[0_12px_34px_rgba(0,0,0,0.28)] transition duration-200 hover:bg-principal-forte active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50",
+        "foco-visivel inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-principal/40 bg-principal px-4 py-2 text-sm font-bold text-[var(--principal-contraste)] shadow-[0_12px_34px_rgba(0,0,0,0.28)] transition duration-200 hover:bg-principal-forte active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
       disabled={disabled || carregando}

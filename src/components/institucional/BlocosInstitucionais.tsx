@@ -38,7 +38,7 @@ export function HeroInstitucional({
               {acaoPrimaria ? (
                 <Link
                   href={acaoPrimaria.href}
-                  className="foco-visivel inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-principal/40 bg-principal px-5 text-sm font-bold text-[#12100a] transition hover:bg-principal-forte"
+                  className="foco-visivel inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-principal/40 bg-principal px-5 text-sm font-bold text-[var(--principal-contraste)] transition hover:bg-principal-forte"
                 >
                   {acaoPrimaria.label}
                   <ArrowRight className="size-4" aria-hidden="true" />
