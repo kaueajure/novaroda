@@ -30,6 +30,10 @@ type LojaState = {
   alterarStatusVeiculo: (id: string, status: StatusVeiculo) => void;
   adicionarCliente: (dados: DadosCliente) => void;
   moverOportunidade: (id: string, etapa: EtapaOportunidade) => void;
+  atualizarPerfil: (dados: {
+    usuario: Partial<UsuarioLojista>;
+    loja: Partial<Loja>;
+  }) => void;
   limparNotificacao: () => void;
 };
 
@@ -138,6 +142,13 @@ export const useLojaStore = create<LojaState>()(
           notificacao: notificar("Funil atualizado", "sucesso"),
         }));
       },
+      atualizarPerfil(dados) {
+        set((state) => ({
+          usuario: { ...state.usuario, ...dados.usuario },
+          loja: { ...state.loja, ...dados.loja },
+          notificacao: notificar("Perfil atualizado", "sucesso"),
+        }));
+      },
       limparNotificacao() {
         set({ notificacao: undefined });
       },
@@ -147,6 +158,7 @@ export const useLojaStore = create<LojaState>()(
       partialize: (state) => ({
         autenticado: state.autenticado,
         usuario: state.usuario,
+        loja: state.loja,
         veiculos: state.veiculos,
         clientes: state.clientes,
         oportunidades: state.oportunidades,

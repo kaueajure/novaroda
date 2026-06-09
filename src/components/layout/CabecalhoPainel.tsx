@@ -15,7 +15,6 @@ export function CabecalhoPainel({
   sidebarDesktopAberta,
 }: CabecalhoPainelProps) {
   const loja = useLojaStore((state) => state.loja);
-  const usuario = useLojaStore((state) => state.usuario);
 
   return (
     <header
@@ -57,16 +56,6 @@ export function CabecalhoPainel({
         </label>
 
         <AlternadorTema />
-
-        <div className="flex items-center gap-3 rounded-lg border border-linha bg-white/[0.03] p-1.5">
-          <span className="grid size-9 place-items-center rounded-md bg-principal/14 text-sm font-bold text-principal">
-            {usuario.avatar}
-          </span>
-          <div className="hidden pr-2 sm:block">
-            <p className="text-sm font-semibold text-texto">{usuario.nome}</p>
-            <p className="text-xs text-texto-fraco">{usuario.cargo}</p>
-          </div>
-        </div>
       </div>
     </header>
   );

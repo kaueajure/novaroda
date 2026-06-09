@@ -53,6 +53,7 @@ O site público usa navegação por páginas e paginação institucional no roda
 - `/painel/clientes` - Clientes/interessados com busca, filtro e cadastro local.
 - `/painel/oportunidades` - Funil de oportunidades em kanban.
 - `/painel/estatisticas` - Indicadores e gráficos da loja.
+- `/painel/perfil` - Configuração do perfil do lojista e dados básicos da loja.
 
 ## Funcionalidades
 

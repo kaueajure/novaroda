@@ -27,7 +27,7 @@ const itensMenu = [
   { href: "/painel/clientes", label: "Clientes", icon: Users },
   { href: "/painel/oportunidades", label: "Oportunidades", icon: Workflow },
   { href: "/painel/estatisticas", label: "Estatísticas", icon: BarChart3 },
-  { href: "/painel#configuracoes", label: "Configurações", icon: Settings },
+  { href: "/painel/perfil", label: "Configurações", icon: Settings },
 ];
 
 type BarraLateralProps = {
@@ -48,6 +48,7 @@ export function BarraLateral({
   const pathname = usePathname();
   const router = useRouter();
   const sair = useLojaStore((state) => state.sair);
+  const usuario = useLojaStore((state) => state.usuario);
 
   function encerrarSessao() {
     sair();
@@ -129,7 +130,7 @@ export function BarraLateral({
             const ativo =
               item.href === "/painel"
                 ? pathname === "/painel"
-                : pathname.startsWith(item.href.replace("#configuracoes", ""));
+                : pathname.startsWith(item.href);
             const Icone = item.icon;
 
             return (
@@ -153,27 +154,43 @@ export function BarraLateral({
           })}
         </nav>
 
-        {!compacta ? (
-          <div className="mt-auto rounded-xl border border-linha bg-white/[0.03] p-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-texto-fraco">
-              Plano ativo
-            </p>
-            <p className="mt-2 text-lg font-semibold text-texto">Pro Operação</p>
-            <p className="mt-1 text-sm leading-5 text-texto-suave">
-              Dados locais, pronto para plugar API, CRM e publicação de anúncios.
-            </p>
-          </div>
-        ) : null}
+        <Link
+          href="/painel/perfil"
+          onClick={aoFecharMobile}
+          title={compacta ? "Configurar perfil" : undefined}
+          aria-label={compacta ? "Configurar perfil" : undefined}
+          className={cn(
+            "foco-visivel mt-auto rounded-xl border border-linha bg-white/[0.03] transition hover:border-linha-forte hover:bg-white/[0.06]",
+            compacta
+              ? "grid size-11 place-items-center self-center"
+              : "flex min-h-16 items-center gap-3 p-3",
+            pathname.startsWith("/painel/perfil") && "border-principal/25 bg-principal/10",
+          )}
+        >
+          <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-principal/14 text-sm font-bold text-principal">
+            {usuario.avatar}
+          </span>
+          {!compacta ? (
+            <span className="min-w-0">
+              <span className="block truncate text-sm font-semibold text-texto">
+                {usuario.nome}
+              </span>
+              <span className="block truncate text-xs text-texto-fraco">
+                Configurar perfil
+              </span>
+            </span>
+          ) : null}
+        </Link>
 
         <button
           type="button"
           onClick={encerrarSessao}
           title={compacta ? "Sair" : undefined}
           className={cn(
-            "foco-visivel min-h-11 rounded-lg text-sm font-semibold text-texto-suave transition hover:bg-erro/10 hover:text-erro",
+            "foco-visivel mt-3 min-h-11 rounded-lg text-sm font-semibold text-texto-suave transition hover:bg-erro/10 hover:text-erro",
             compacta
-              ? "mt-auto grid size-11 place-items-center self-center"
-              : "mt-4 flex items-center gap-3 px-3",
+              ? "grid size-11 place-items-center self-center"
+              : "flex items-center gap-3 px-3",
           )}
         >
           <LogOut className="size-5 shrink-0" aria-hidden="true" />
