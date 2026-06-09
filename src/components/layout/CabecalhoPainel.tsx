@@ -1,18 +1,31 @@
 "use client";
 
-import { Menu, Search } from "lucide-react";
+import { Menu, PanelLeftOpen, Search } from "lucide-react";
+import { AlternadorTema } from "@/components/layout/AlternadorTema";
 import { useLojaStore } from "@/store/useLojaStore";
+import { cn } from "@/utils/cn";
 
 type CabecalhoPainelProps = {
   aoAbrirMenu: () => void;
+  sidebarDesktopAberta: boolean;
+  aoAbrirSidebarDesktop: () => void;
 };
 
-export function CabecalhoPainel({ aoAbrirMenu }: CabecalhoPainelProps) {
+export function CabecalhoPainel({
+  aoAbrirMenu,
+  sidebarDesktopAberta,
+  aoAbrirSidebarDesktop,
+}: CabecalhoPainelProps) {
   const loja = useLojaStore((state) => state.loja);
   const usuario = useLojaStore((state) => state.usuario);
 
   return (
-    <header className="sticky top-0 z-20 border-b border-linha bg-fundo/86 backdrop-blur-xl lg:ml-[280px]">
+    <header
+      className={cn(
+        "sticky top-0 z-20 border-b border-linha bg-fundo/86 backdrop-blur-xl transition-[margin] duration-200",
+        sidebarDesktopAberta && "lg:ml-[280px]",
+      )}
+    >
       <a
         href="#conteudo"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-principal focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#051113]"
@@ -28,6 +41,17 @@ export function CabecalhoPainel({ aoAbrirMenu }: CabecalhoPainelProps) {
         >
           <Menu className="size-5" aria-hidden="true" />
         </button>
+        {!sidebarDesktopAberta ? (
+          <button
+            type="button"
+            onClick={aoAbrirSidebarDesktop}
+            className="foco-visivel hidden size-11 place-items-center rounded-lg border border-linha bg-white/[0.03] text-texto-suave lg:grid"
+            aria-label="Abrir sidebar"
+            title="Abrir sidebar"
+          >
+            <PanelLeftOpen className="size-5" aria-hidden="true" />
+          </button>
+        ) : null}
 
         <div className="hidden min-w-0 flex-1 md:block">
           <p className="text-sm font-semibold text-texto">{loja.nome}</p>
@@ -45,6 +69,8 @@ export function CabecalhoPainel({ aoAbrirMenu }: CabecalhoPainelProps) {
             className="w-full bg-transparent text-sm text-texto outline-none placeholder:text-texto-fraco"
           />
         </label>
+
+        <AlternadorTema />
 
         <div className="flex items-center gap-3 rounded-lg border border-linha bg-white/[0.03] p-1.5">
           <span className="grid size-9 place-items-center rounded-md bg-principal/14 text-sm font-bold text-principal">

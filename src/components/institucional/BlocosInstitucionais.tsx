@@ -68,7 +68,7 @@ export function HeroInstitucional({
             className="object-cover"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,9,15,0.08),rgba(7,9,15,0.62))]" />
-          <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-linha bg-[#0b1019]/82 p-4 backdrop-blur-xl">
+          <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-linha bg-card-solido/85 p-4 backdrop-blur-xl">
             <p className="font-display text-2xl font-semibold text-texto">
               Operação integrada
             </p>

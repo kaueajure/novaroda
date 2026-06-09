@@ -138,7 +138,7 @@ export function PaginaSolucoesInstitucional() {
       <SecaoInstitucional
         etiqueta="Módulos"
         titulo="Cada módulo resolve uma parte concreta da operação."
-        descricao="A navegação pública apresenta a proposta. O painel demonstrativo mostra o fluxo funcionando com dados mockados."
+        descricao="A navegação pública apresenta a proposta. O painel demonstrativo mostra o fluxo funcionando com dados locais criados pelo usuário."
       >
         <GradeCards itens={solucoesInstitucionais} />
       </SecaoInstitucional>
@@ -154,7 +154,7 @@ export function PaginaRecursosInstitucional() {
       <HeroInstitucional
         etiqueta="Recursos"
         titulo="Ferramentas prontas para simular a operação completa."
-        descricao="A versão atual funciona no front-end com estado local, mocks organizados, validações, filtros, gráficos e feedback visual."
+        descricao="A versão atual funciona no front-end com estado local, validações, filtros, gráficos e feedback visual."
         imagem={imagemRecursos}
         alt="Dashboard analítico aberto em uma tela de computador"
         acaoPrimaria={{ href: "/login", label: "Testar painel" }}
@@ -175,7 +175,7 @@ export function PaginaRecursosInstitucional() {
       >
         <div className="grid gap-4 lg:grid-cols-3">
           {[
-            ["API e banco", "Substituir mocks por endpoints, autenticação real e persistência multi-loja."],
+            ["API e banco", "Conectar endpoints, autenticação real e persistência multi-loja."],
             ["Publicação de anúncios", "Enviar veículos para vitrine pública, portais, redes sociais e WhatsApp."],
             ["Equipe e permissões", "Gerenciar vendedores, histórico de ações e responsabilidades por oportunidade."],
           ].map(([titulo, descricao]) => (
@@ -234,19 +234,19 @@ export function PaginaContatoInstitucional() {
             <div className="grid gap-4 md:grid-cols-2">
               <label className="space-y-2 text-sm font-semibold text-texto-suave">
                 Nome
-                <input className="foco-visivel min-h-11 w-full rounded-lg border border-linha bg-[#0b1019] px-3 text-base text-texto" />
+                <input className="foco-visivel min-h-11 w-full rounded-lg border border-linha bg-card-solido px-3 text-base text-texto" />
               </label>
               <label className="space-y-2 text-sm font-semibold text-texto-suave">
                 E-mail
-                <input type="email" className="foco-visivel min-h-11 w-full rounded-lg border border-linha bg-[#0b1019] px-3 text-base text-texto" />
+                <input type="email" className="foco-visivel min-h-11 w-full rounded-lg border border-linha bg-card-solido px-3 text-base text-texto" />
               </label>
               <label className="space-y-2 text-sm font-semibold text-texto-suave md:col-span-2">
                 Loja
-                <input className="foco-visivel min-h-11 w-full rounded-lg border border-linha bg-[#0b1019] px-3 text-base text-texto" />
+                <input className="foco-visivel min-h-11 w-full rounded-lg border border-linha bg-card-solido px-3 text-base text-texto" />
               </label>
               <label className="space-y-2 text-sm font-semibold text-texto-suave md:col-span-2">
                 Mensagem
-                <textarea rows={5} className="foco-visivel w-full rounded-lg border border-linha bg-[#0b1019] px-3 py-2 text-base text-texto" />
+                <textarea rows={5} className="foco-visivel w-full rounded-lg border border-linha bg-card-solido px-3 py-2 text-base text-texto" />
               </label>
             </div>
             <button

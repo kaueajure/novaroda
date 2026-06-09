@@ -41,7 +41,7 @@ const beneficios = [
 
 export function SecaoBeneficios() {
   return (
-    <section id="beneficios" className="border-b border-linha bg-[#080b12] px-4 py-20 sm:px-6 lg:px-8">
+    <section id="beneficios" className="border-b border-linha bg-fundo-elevado px-4 py-20 sm:px-6 lg:px-8">
       <SecaoTitulo
         etiqueta="Produtividade"
         titulo="Troque tarefas repetidas por um fluxo de loja mais fluido."

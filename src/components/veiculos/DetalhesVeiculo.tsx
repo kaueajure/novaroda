@@ -27,7 +27,7 @@ export function DetalhesVeiculo() {
       <ContainerPagina titulo="Veículo não encontrado">
         <section className="rounded-xl border border-linha bg-card p-8 text-center">
           <p className="text-texto-suave">
-            O veículo solicitado não está mais no estoque simulado.
+            O veículo solicitado não está mais no estoque da loja.
           </p>
           <Link
             href="/painel/veiculos"
@@ -130,7 +130,7 @@ export function DetalhesVeiculo() {
       <ModalConfirmacao
         aberto={confirmarExclusao}
         titulo="Excluir veículo?"
-        descricao={`Esta ação remove ${veiculo.marca} ${veiculo.modelo} do estoque simulado.`}
+        descricao={`Esta ação remove ${veiculo.marca} ${veiculo.modelo} do estoque da loja.`}
         textoConfirmar="Excluir"
         aoConfirmar={excluir}
         aoFechar={() => setConfirmarExclusao(false)}

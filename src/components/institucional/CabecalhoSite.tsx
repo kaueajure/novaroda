@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { ArrowRight, Gauge, Menu, X } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { paginasInstitucionais } from "@/components/institucional/dadosInstitucionais";
+import { AlternadorTema } from "@/components/layout/AlternadorTema";
 
 export function CabecalhoSite() {
   const pathname = usePathname();
@@ -47,6 +48,7 @@ export function CabecalhoSite() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
+          <AlternadorTema className="hidden sm:inline-flex" />
           <Link
             href="/login"
             className="foco-visivel hidden min-h-11 items-center justify-center gap-2 rounded-lg bg-principal px-4 text-sm font-bold text-[#051113] transition hover:bg-[#76eadc] sm:inline-flex"
@@ -69,6 +71,7 @@ export function CabecalhoSite() {
       {aberto ? (
         <nav className="border-t border-linha px-4 py-3 lg:hidden" aria-label="Menu mobile">
           <div className="mx-auto grid max-w-7xl gap-2">
+            <AlternadorTema className="w-full" />
             {paginasInstitucionais.map((pagina) => {
               const ativo = pathname === pagina.href;
               return (

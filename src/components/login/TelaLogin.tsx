@@ -45,7 +45,7 @@ export function TelaLogin() {
   return (
     <main className="relative grid min-h-dvh place-items-center overflow-hidden bg-fundo px-4 py-10 text-texto sm:px-6">
       <FundoAnimado />
-      <div className="relative z-10 grid w-full max-w-6xl overflow-hidden rounded-2xl border border-linha bg-[#0b1019]/88 shadow-[0_30px_120px_rgba(0,0,0,0.44)] backdrop-blur-xl lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="relative z-10 grid w-full max-w-6xl overflow-hidden rounded-2xl border border-linha bg-card/88 shadow-[0_30px_120px_rgba(0,0,0,0.24)] backdrop-blur-xl lg:grid-cols-[0.9fr_1.1fr]">
         <section className="border-b border-linha bg-[linear-gradient(145deg,rgba(97,214,200,0.11),rgba(116,169,255,0.04))] p-6 sm:p-8 lg:border-b-0 lg:border-r">
           <Link
             href="/"
@@ -78,7 +78,7 @@ export function TelaLogin() {
           </div>
 
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-            {["Login fake", "Dados mockados", "Fluxo completo", "Sem backend"].map((item) => (
+            {["Login demo", "Dados locais", "Fluxo completo", "Sem backend"].map((item) => (
               <div key={item} className="rounded-xl border border-linha bg-white/[0.04] p-4">
                 <p className="text-sm font-semibold text-texto">{item}</p>
               </div>
@@ -126,7 +126,7 @@ export function TelaLogin() {
                     id="senha"
                     type={mostrarSenha ? "text" : "password"}
                     autoComplete="current-password"
-                    className="foco-visivel min-h-11 w-full rounded-lg border border-linha bg-[#0b1019] px-10 py-2 text-base text-texto placeholder:text-texto-fraco transition duration-200 hover:border-linha-forte"
+                    className="foco-visivel min-h-11 w-full rounded-lg border border-linha bg-card-solido px-10 py-2 text-base text-texto placeholder:text-texto-fraco transition duration-200 hover:border-linha-forte"
                     aria-invalid={errors.senha ? "true" : "false"}
                     {...register("senha")}
                   />

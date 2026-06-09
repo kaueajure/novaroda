@@ -18,13 +18,10 @@ import { Bike, Car, CircleDollarSign, TrendingUp } from "lucide-react";
 import { CardResumo } from "@/components/dashboard/CardResumo";
 import { GraficoResumo } from "@/components/dashboard/GraficoResumo";
 import { ContainerPagina } from "@/components/layout/ContainerPagina";
-import {
-  evolucaoVendasMock,
-  veiculosCadastradosMesMock,
-} from "@/data/estatisticasMock";
 import { useLojaStore } from "@/store/useLojaStore";
 import { calcularValorEstoque } from "@/utils/calcularEstatisticas";
 import { formatarMoeda } from "@/utils/formatarMoeda";
+import { gerarCadastrosMensais, gerarEvolucaoComercial } from "@/utils/gerarSeries";
 import {
   rotuloEtapaOportunidade,
   rotuloStatusVeiculo,
@@ -34,16 +31,18 @@ import {
 const cores = ["#61d6c8", "#74a9ff", "#a78bfa", "#77df9c", "#f4bf75", "#ff7b8d"];
 
 const tooltip = {
-  background: "#101521",
+  background: "var(--fundo-card-solido)",
   border: "1px solid rgba(148,163,184,0.22)",
   borderRadius: 12,
-  color: "#f5f7fb",
+  color: "var(--texto)",
 };
 
 export function EstatisticasLoja() {
   const veiculos = useLojaStore((state) => state.veiculos);
   const oportunidades = useLojaStore((state) => state.oportunidades);
   const valorEstoque = calcularValorEstoque(veiculos);
+  const evolucaoComercial = gerarEvolucaoComercial(veiculos, oportunidades);
+  const cadastrosMensais = gerarCadastrosMensais(veiculos);
 
   const porTipo = (["carro", "moto"] as const).map((tipo) => ({
     nome: rotuloTipoVeiculo[tipo],
@@ -74,7 +73,7 @@ export function EstatisticasLoja() {
   return (
     <ContainerPagina
       titulo="Estatísticas da loja"
-      subtitulo="Indicadores simulados para acompanhar estoque, vendas, oportunidades e valor parado."
+      subtitulo="Indicadores calculados com os dados locais da loja."
     >
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         <CardResumo
@@ -138,7 +137,7 @@ export function EstatisticasLoja() {
 
         <GraficoResumo titulo="Evolução de vendas" descricao="Vendas e oportunidades por mês.">
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={evolucaoVendasMock} margin={{ left: -18, right: 8, top: 10 }}>
+            <AreaChart data={evolucaoComercial} margin={{ left: -18, right: 8, top: 10 }}>
               <defs>
                 <linearGradient id="estatisticaVendas" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#61d6c8" stopOpacity={0.42} />
@@ -172,9 +171,9 @@ export function EstatisticasLoja() {
         </GraficoResumo>
 
         <div className="xl:col-span-2">
-          <GraficoResumo titulo="Veículos cadastrados por mês" descricao="Simulação de crescimento do estoque.">
+          <GraficoResumo titulo="Veículos cadastrados por mês" descricao="Crescimento do estoque ao longo do tempo.">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={veiculosCadastradosMesMock} margin={{ left: -18, right: 8, top: 10 }}>
+              <BarChart data={cadastrosMensais} margin={{ left: -18, right: 8, top: 10 }}>
                 <CartesianGrid stroke="rgba(148,163,184,0.12)" vertical={false} />
                 <XAxis dataKey="nome" stroke="#7d89a6" tickLine={false} axisLine={false} />
                 <YAxis stroke="#7d89a6" tickLine={false} axisLine={false} />

@@ -2,10 +2,6 @@
 
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { clientesMock } from "@/data/clientesMock";
-import { lojaMock, usuarioMock } from "@/data/usuarioMock";
-import { veiculosMock } from "@/data/veiculosMock";
-import { oportunidadesMock } from "@/data/oportunidadesMock";
 import type { DadosCliente, Cliente } from "@/types/Cliente";
 import type { EtapaOportunidade, Oportunidade } from "@/types/Oportunidade";
 import type { Loja, UsuarioLojista } from "@/types/Loja";
@@ -51,20 +47,34 @@ function notificar(
   return { id: criarId("ntf"), titulo, tipo, descricao };
 }
 
+const usuarioPadrao: UsuarioLojista = {
+  nome: "Lojista",
+  cargo: "Administrador",
+  email: "",
+  avatar: "LG",
+};
+
+const lojaPadrao: Loja = {
+  nome: "Minha loja",
+  cidade: "Cidade não definida",
+  plano: "Inicial",
+  metaMensal: 0,
+};
+
 export const useLojaStore = create<LojaState>()(
   persist(
     (set) => ({
       autenticado: false,
-      usuario: usuarioMock,
-      loja: lojaMock,
-      veiculos: veiculosMock,
-      clientes: clientesMock,
-      oportunidades: oportunidadesMock,
+      usuario: usuarioPadrao,
+      loja: lojaPadrao,
+      veiculos: [],
+      clientes: [],
+      oportunidades: [],
       async autenticar(email) {
         await new Promise((resolve) => setTimeout(resolve, 700));
         set({
           autenticado: true,
-          usuario: { ...usuarioMock, email },
+          usuario: { ...usuarioPadrao, email },
           notificacao: notificar("Login realizado", "sucesso"),
         });
       },
@@ -133,7 +143,7 @@ export const useLojaStore = create<LojaState>()(
       },
     }),
     {
-      name: "autogestor-pro-store",
+      name: "autogestor-pro-store-local",
       partialize: (state) => ({
         autenticado: state.autenticado,
         usuario: state.usuario,

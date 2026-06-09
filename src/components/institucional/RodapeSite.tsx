@@ -4,7 +4,7 @@ import { paginasInstitucionais } from "@/components/institucional/dadosInstituci
 
 export function RodapeSite() {
   return (
-    <footer className="border-t border-linha bg-[#080b12] px-4 py-10 sm:px-6 lg:px-8">
+    <footer className="border-t border-linha bg-fundo-elevado px-4 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1fr_1fr] lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
         <div>
           <div className="flex items-center gap-3">

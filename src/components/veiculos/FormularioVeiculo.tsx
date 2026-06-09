@@ -186,7 +186,7 @@ export function FormularioVeiculo({
           <textarea
             id="descricao"
             rows={5}
-            className="foco-visivel w-full rounded-lg border border-linha bg-[#0b1019] px-3 py-2 text-base text-texto placeholder:text-texto-fraco transition duration-200 hover:border-linha-forte"
+            className="foco-visivel w-full rounded-lg border border-linha bg-card-solido px-3 py-2 text-base text-texto placeholder:text-texto-fraco transition duration-200 hover:border-linha-forte"
             {...register("descricao")}
           />
           {errors.descricao?.message ? (
@@ -225,7 +225,7 @@ export function FormularioVeiculo({
         <p className="text-sm font-bold uppercase tracking-[0.18em] text-texto-fraco">
           Prévia
         </p>
-        <div className="mt-4 overflow-hidden rounded-xl border border-linha bg-[#0b1019]">
+        <div className="mt-4 overflow-hidden rounded-xl border border-linha bg-card-solido">
           {/* O preview aceita qualquer URL pública que o lojista colar, por isso usa img nativo. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

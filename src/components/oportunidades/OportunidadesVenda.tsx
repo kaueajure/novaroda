@@ -48,7 +48,7 @@ export function OportunidadesVenda() {
         <CardResumo
           titulo="Conversão"
           valor={`${taxa}%`}
-          descricao="Fechamentos simulados no funil."
+          descricao="Fechamentos no funil."
           icone={<TrendingUp className="size-5" aria-hidden="true" />}
           destaque="verde"
         />

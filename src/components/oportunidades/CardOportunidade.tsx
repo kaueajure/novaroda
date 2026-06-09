@@ -24,7 +24,7 @@ export function CardOportunidade({
   aoMover: (id: string, etapa: EtapaOportunidade) => void;
 }) {
   return (
-    <article className="rounded-xl border border-linha bg-[#0d131d] p-4 shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
+    <article className="rounded-xl border border-linha bg-card-solido p-4 shadow-[0_12px_30px_rgba(0,0,0,0.12)]">
       <div className="flex items-start justify-between gap-3">
         <div>
           <h3 className="font-semibold text-texto">{oportunidade.cliente}</h3>

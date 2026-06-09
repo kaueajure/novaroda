@@ -29,7 +29,7 @@ export function CardResumo({
 }: CardResumoProps) {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 12 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -3 }}
       transition={{ duration: 0.22 }}

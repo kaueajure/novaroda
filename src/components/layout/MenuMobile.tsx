@@ -18,7 +18,7 @@ export function MenuMobile() {
 
   return (
     <nav
-      className="fixed inset-x-0 bottom-0 z-30 border-t border-linha bg-[#080c14]/95 px-2 pb-[env(safe-area-inset-bottom)] pt-2 backdrop-blur-xl lg:hidden"
+      className="fixed inset-x-0 bottom-0 z-30 border-t border-linha bg-fundo-elevado/95 px-2 pb-[env(safe-area-inset-bottom)] pt-2 backdrop-blur-xl lg:hidden"
       aria-label="Navegação inferior"
     >
       <div className="grid grid-cols-5 gap-1">

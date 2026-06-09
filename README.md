@@ -1,6 +1,6 @@
 # AutoGestor Pro
 
-Site institucional e sistema SaaS demonstrativo para lojas de automóveis, focado em carros e motos. O objetivo é apresentar a plataforma em páginas públicas completas e manter um painel administrativo funcional para simular a gestão de estoque, clientes e oportunidades.
+Site institucional e sistema SaaS para lojas de automóveis, focado em carros e motos. O objetivo é apresentar a plataforma em páginas públicas completas e manter um painel administrativo funcional para gestão de estoque, clientes e oportunidades.
 
 ## Stack utilizada
 
@@ -42,32 +42,34 @@ npm run build
 
 O site público usa navegação por páginas e paginação institucional no rodapé de cada rota pública. A experiência não depende de uma landing page única nem de elemento 3D no hero.
 
-## Painel demonstrativo
+## Painel do lojista
 
-- `/login` - Login fake com validação e redirecionamento para o painel.
+- `/login` - Login demo com validação e redirecionamento para o painel.
 - `/painel` - Dashboard principal do lojista.
 - `/painel/veiculos` - Lista, filtros, ordenação, edição de status e exclusão.
 - `/painel/veiculos/novo` - Cadastro de veículo.
 - `/painel/veiculos/[id]` - Detalhes do veículo.
 - `/painel/veiculos/[id]/editar` - Edição do veículo.
-- `/painel/clientes` - Clientes/interessados com busca, filtro e cadastro simulado.
+- `/painel/clientes` - Clientes/interessados com busca, filtro e cadastro local.
 - `/painel/oportunidades` - Funil de oportunidades em kanban.
 - `/painel/estatisticas` - Indicadores e gráficos da loja.
 
-## Funcionalidades simuladas
+## Funcionalidades
 
-- Login e logout fake.
+- Login e logout demonstrativos.
 - Cadastro, edição, exclusão e visualização de veículos.
 - Filtros por busca, tipo, status e ordenação.
 - Alteração de status de veículo.
 - Cadastro e filtro de clientes interessados.
 - Mudança de etapa de oportunidades.
 - Toasts de feedback.
+- Sidebar desktop recolhível no painel.
+- Alternador global entre tema claro e escuro.
 - Dados persistidos localmente via Zustand persist.
 
-## Dados mockados
+## Dados locais
 
-Os dados iniciais ficam em `src/data` e simulam veículos, clientes, oportunidades, estatísticas, usuário lojista e loja. Eles são realistas, mas fictícios, e podem ser substituídos por chamadas de API quando o projeto evoluir.
+O sistema inicia sem veículos, clientes ou oportunidades pré-carregados. Os registros criados pelo usuário ficam no estado local do navegador e podem ser substituídos por chamadas de API quando o projeto evoluir.
 
 ## Evoluções futuras
 

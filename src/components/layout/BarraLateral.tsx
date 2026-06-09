@@ -7,6 +7,7 @@ import {
   Car,
   Gauge,
   LogOut,
+  PanelLeftClose,
   Settings,
   Users,
   X,
@@ -28,11 +29,15 @@ const itensMenu = [
 type BarraLateralProps = {
   abertoMobile?: boolean;
   aoFecharMobile?: () => void;
+  abertoDesktop?: boolean;
+  aoFecharDesktop?: () => void;
 };
 
 export function BarraLateral({
   abertoMobile = false,
   aoFecharMobile,
+  abertoDesktop = true,
+  aoFecharDesktop,
 }: BarraLateralProps) {
   const pathname = usePathname();
   const router = useRouter();
@@ -44,7 +49,7 @@ export function BarraLateral({
   }
 
   const conteudo = (
-    <aside className="flex h-full w-[280px] flex-col border-r border-linha bg-[#080c14]/96 px-4 py-5 backdrop-blur-xl">
+    <aside className="flex h-full w-[280px] flex-col border-r border-linha bg-fundo-elevado/96 px-4 py-5 backdrop-blur-xl">
       <div className="flex items-center justify-between gap-3">
         <Link href="/" className="foco-visivel rounded-lg" aria-label="AutoGestor Pro">
           <div className="flex items-center gap-3">
@@ -68,6 +73,15 @@ export function BarraLateral({
           aria-label="Fechar menu"
         >
           <X className="size-5" aria-hidden="true" />
+        </button>
+        <button
+          type="button"
+          onClick={aoFecharDesktop}
+          className="foco-visivel hidden size-10 place-items-center rounded-lg text-texto-fraco hover:bg-white/[0.06] hover:text-texto lg:grid"
+          aria-label="Fechar sidebar"
+          title="Fechar sidebar"
+        >
+          <PanelLeftClose className="size-5" aria-hidden="true" />
         </button>
       </div>
 
@@ -103,7 +117,7 @@ export function BarraLateral({
         </p>
         <p className="mt-2 text-lg font-semibold text-texto">Pro Operação</p>
         <p className="mt-1 text-sm leading-5 text-texto-suave">
-          Mocks locais, pronto para plugar API, CRM e publicação de anúncios.
+          Dados locais, pronto para plugar API, CRM e publicação de anúncios.
         </p>
       </div>
 
@@ -120,7 +134,9 @@ export function BarraLateral({
 
   return (
     <>
-      <div className="fixed inset-y-0 left-0 z-30 hidden lg:block">{conteudo}</div>
+      {abertoDesktop ? (
+        <div className="fixed inset-y-0 left-0 z-30 hidden lg:block">{conteudo}</div>
+      ) : null}
       {abertoMobile ? (
         <motion.div
           className="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm lg:hidden"

@@ -25,11 +25,11 @@ import { CardResumo } from "@/components/dashboard/CardResumo";
 import { GraficoResumo } from "@/components/dashboard/GraficoResumo";
 import { ResumoEstoque } from "@/components/dashboard/ResumoEstoque";
 import { ContainerPagina } from "@/components/layout/ContainerPagina";
-import { evolucaoVendasMock } from "@/data/estatisticasMock";
 import { useLojaStore } from "@/store/useLojaStore";
 import { calcularResumoLoja } from "@/utils/calcularEstatisticas";
 import { formatarData } from "@/utils/formatarData";
 import { formatarMoeda } from "@/utils/formatarMoeda";
+import { gerarEvolucaoComercial } from "@/utils/gerarSeries";
 import { rotuloStatusVeiculo } from "@/utils/rotulos";
 
 export function DashboardPrincipal() {
@@ -38,6 +38,7 @@ export function DashboardPrincipal() {
   const oportunidades = useLojaStore((state) => state.oportunidades);
   const loja = useLojaStore((state) => state.loja);
   const resumo = calcularResumoLoja(veiculos, clientes, oportunidades);
+  const evolucaoComercial = gerarEvolucaoComercial(veiculos, oportunidades);
   const recentes = [...veiculos]
     .sort(
       (a, b) =>
@@ -48,7 +49,7 @@ export function DashboardPrincipal() {
   return (
     <ContainerPagina
       titulo="Dashboard principal"
-      subtitulo={`Visão operacional da ${loja.nome}: estoque, clientes e oportunidades em tempo real simulado.`}
+      subtitulo={`Visão operacional da ${loja.nome}: estoque, clientes e oportunidades com dados locais da loja.`}
       acao={
         <Link
           href="/painel/veiculos/novo"
@@ -97,7 +98,7 @@ export function DashboardPrincipal() {
         <CardResumo
           titulo="Vendidos no mês"
           valor={resumo.vendidosMes}
-          descricao="Simulação baseada no status vendido."
+          descricao="Baseado no status vendido."
           icone={<TrendingUp className="size-5" aria-hidden="true" />}
           destaque="alerta"
         />
@@ -123,7 +124,7 @@ export function DashboardPrincipal() {
           descricao="Vendas e oportunidades dos últimos meses."
         >
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={evolucaoVendasMock} margin={{ left: -18, right: 8, top: 10 }}>
+            <AreaChart data={evolucaoComercial} margin={{ left: -18, right: 8, top: 10 }}>
               <defs>
                 <linearGradient id="corVendas" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#61d6c8" stopOpacity={0.42} />
@@ -139,10 +140,10 @@ export function DashboardPrincipal() {
               <YAxis stroke="#7d89a6" tickLine={false} axisLine={false} />
               <Tooltip
                 contentStyle={{
-                  background: "#101521",
+                  background: "var(--fundo-card-solido)",
                   border: "1px solid rgba(148,163,184,0.22)",
                   borderRadius: 12,
-                  color: "#f5f7fb",
+                  color: "var(--texto)",
                 }}
               />
               <Area type="monotone" dataKey="oportunidades" stroke="#74a9ff" fill="url(#corOportunidades)" strokeWidth={2} isAnimationActive={false} />
@@ -171,6 +172,7 @@ export function DashboardPrincipal() {
             </Link>
           </div>
           <div className="min-w-0 overflow-x-auto">
+            {recentes.length > 0 ? (
             <table className="w-full min-w-[680px] text-left text-sm">
               <thead className="text-xs uppercase tracking-[0.14em] text-texto-fraco">
                 <tr className="border-b border-linha">
@@ -204,6 +206,14 @@ export function DashboardPrincipal() {
                 ))}
               </tbody>
             </table>
+            ) : (
+              <div className="rounded-lg border border-dashed border-linha-forte p-6 text-center">
+                <p className="font-semibold text-texto">Nenhum veículo cadastrado ainda.</p>
+                <p className="mt-1 text-sm text-texto-fraco">
+                  Cadastre o primeiro veículo para alimentar o painel.
+                </p>
+              </div>
+            )}
           </div>
         </div>
 

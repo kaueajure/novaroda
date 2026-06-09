@@ -1,23 +1,33 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, Car, CircleDollarSign, Users, Workflow } from "lucide-react";
-import { veiculosMock } from "@/data/veiculosMock";
-import { formatarMoeda } from "@/utils/formatarMoeda";
 import { SecaoTitulo } from "@/components/marketing/SecaoTitulo";
+import { formatarMoeda } from "@/utils/formatarMoeda";
+
+const indicadoresIniciais = [
+  { label: "Veículos", valor: "0", icon: Car },
+  { label: "Valor em estoque", valor: formatarMoeda(0), icon: CircleDollarSign },
+  { label: "Clientes", valor: "0", icon: Users },
+  { label: "Oportunidades", valor: "0", icon: Workflow },
+];
+
+const etapasFunil = [
+  "Novo interesse",
+  "Em atendimento",
+  "Proposta enviada",
+  "Negociação",
+  "Fechado",
+];
 
 export function PreviaDashboard() {
-  const valorEstoque = veiculosMock.reduce((total, veiculo) => total + veiculo.preco, 0);
-  const destaques = veiculosMock.filter((veiculo) => veiculo.destaque).slice(0, 3);
-
   return (
-    <section id="preview" className="border-b border-linha bg-[#080b12] px-4 py-20 sm:px-6 lg:px-8">
+    <section id="preview" className="border-b border-linha bg-fundo-elevado px-4 py-20 sm:px-6 lg:px-8">
       <SecaoTitulo
         etiqueta="Prévia do painel"
         titulo="Uma operação visual o suficiente para decidir rápido."
         descricao="Cards de resumo, estoque recente, gráficos e funil comercial aparecem com hierarquia clara e sem poluição visual."
       />
 
-      <div className="mx-auto mt-12 max-w-7xl rounded-2xl border border-linha bg-[#0c111b] p-3 shadow-[0_30px_100px_rgba(0,0,0,0.42)]">
+      <div className="mx-auto mt-12 max-w-7xl rounded-2xl border border-linha bg-card p-3 shadow-[0_30px_100px_rgba(0,0,0,0.22)]">
         <div className="rounded-xl border border-linha bg-fundo p-4">
           <div className="flex flex-col gap-3 border-b border-linha pb-4 md:flex-row md:items-center md:justify-between">
             <div>
@@ -36,15 +46,10 @@ export function PreviaDashboard() {
           </div>
 
           <div className="mt-4 grid gap-3 md:grid-cols-4">
-            {[
-              { label: "Veículos", valor: veiculosMock.length, icon: Car },
-              { label: "Valor em estoque", valor: formatarMoeda(valorEstoque), icon: CircleDollarSign },
-              { label: "Clientes", valor: "48", icon: Users },
-              { label: "Oportunidades", valor: "29", icon: Workflow },
-            ].map((item) => {
+            {indicadoresIniciais.map((item) => {
               const Icone = item.icon;
               return (
-                <div key={item.label} className="rounded-xl border border-linha bg-white/[0.03] p-4">
+                <div key={item.label} className="rounded-xl border border-linha bg-card p-4">
                   <Icone className="size-5 text-principal" aria-hidden="true" />
                   <p className="mt-4 font-display text-3xl font-semibold text-texto">
                     {item.valor}
@@ -56,53 +61,32 @@ export function PreviaDashboard() {
           </div>
 
           <div className="mt-4 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="rounded-xl border border-linha bg-white/[0.025] p-4">
+            <div className="rounded-xl border border-linha bg-card p-4">
               <div className="flex items-center justify-between">
-                <p className="font-semibold text-texto">Destaques em estoque</p>
-                <p className="text-sm text-principal">Atualizado agora</p>
+                <p className="font-semibold text-texto">Estoque recente</p>
+                <p className="text-sm text-principal">Pronto para cadastrar</p>
               </div>
-              <div className="mt-4 grid gap-3 md:grid-cols-3">
-                {destaques.map((veiculo) => (
-                  <article key={veiculo.id} className="overflow-hidden rounded-lg border border-linha bg-[#101521]">
-                    <Image
-                      src={veiculo.imagem}
-                      alt={`${veiculo.marca} ${veiculo.modelo}`}
-                      width={420}
-                      height={260}
-                      className="h-28 w-full object-cover"
-                    />
-                    <div className="p-3">
-                      <p className="font-semibold text-texto">
-                        {veiculo.marca} {veiculo.modelo}
-                      </p>
-                      <p className="text-sm text-texto-fraco">
-                        {veiculo.ano} · {formatarMoeda(veiculo.preco)}
-                      </p>
-                    </div>
-                  </article>
-                ))}
+              <div className="mt-4 rounded-lg border border-dashed border-linha-forte p-8 text-center">
+                <span className="mx-auto grid size-12 place-items-center rounded-xl border border-principal/20 bg-principal/10 text-principal">
+                  <Car className="size-5" aria-hidden="true" />
+                </span>
+                <p className="mt-4 font-semibold text-texto">
+                  Nenhum veículo cadastrado ainda.
+                </p>
+                <p className="mt-2 text-sm leading-6 text-texto-fraco">
+                  O painel começa limpo para a loja alimentar o estoque com dados próprios.
+                </p>
               </div>
             </div>
-            <div className="rounded-xl border border-linha bg-white/[0.025] p-4">
-              <p className="font-semibold text-texto">Funil da semana</p>
-              <div className="mt-5 space-y-4">
-                {[
-                  ["Novo interesse", "78%"],
-                  ["Proposta enviada", "52%"],
-                  ["Negociação", "34%"],
-                  ["Fechado", "18%"],
-                ].map(([label, largura]) => (
-                  <div key={label}>
-                    <div className="mb-2 flex justify-between text-sm">
-                      <span className="text-texto-suave">{label}</span>
-                      <span className="text-texto-fraco">{largura}</span>
-                    </div>
-                    <div className="h-2 rounded-full bg-white/[0.06]">
-                      <div
-                        className="h-full rounded-full bg-principal"
-                        style={{ width: largura }}
-                      />
-                    </div>
+            <div className="rounded-xl border border-linha bg-card p-4">
+              <p className="font-semibold text-texto">Funil comercial</p>
+              <div className="mt-5 space-y-3">
+                {etapasFunil.map((label) => (
+                  <div key={label} className="flex items-center justify-between rounded-lg border border-linha bg-fundo-elevado px-3 py-2 text-sm">
+                    <span className="text-texto-suave">{label}</span>
+                    <span className="rounded-full border border-linha px-2 py-1 text-xs font-semibold text-texto-fraco">
+                      0
+                    </span>
                   </div>
                 ))}
               </div>

@@ -19,7 +19,7 @@ export function EdicaoVeiculo() {
       <ContainerPagina titulo="Veículo não encontrado">
         <section className="rounded-xl border border-linha bg-card p-8 text-center">
           <p className="text-texto-suave">
-            O veículo solicitado não está mais no estoque simulado.
+            O veículo solicitado não está mais no estoque da loja.
           </p>
           <Link
             href="/painel/veiculos"

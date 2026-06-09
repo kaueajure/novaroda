@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Rajdhani, Source_Sans_3 } from "next/font/google";
+import { ProvedorTema } from "@/components/layout/ProvedorTema";
 import "./globals.css";
 
 const fonteDisplay = Rajdhani({
@@ -30,7 +31,10 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${fonteDisplay.variable} ${fonteCorpo.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-fundo text-texto">{children}</body>
+      <body className="min-h-full bg-fundo text-texto">
+        <ProvedorTema />
+        {children}
+      </body>
     </html>
   );
 }

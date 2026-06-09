@@ -21,7 +21,7 @@ export function CardVeiculo({
 }: CardVeiculoProps) {
   return (
     <article className="overflow-hidden rounded-xl border border-linha bg-card shadow-[0_16px_44px_rgba(0,0,0,0.2)] transition hover:border-linha-forte">
-      <div className="relative aspect-[16/10] overflow-hidden bg-[#0b1019]">
+      <div className="relative aspect-[16/10] overflow-hidden bg-card-solido">
         <Image
           src={veiculo.imagem}
           alt={`${veiculo.marca} ${veiculo.modelo}`}
@@ -77,7 +77,7 @@ export function CardVeiculo({
             <select
               value={veiculo.status}
               onChange={(event) => aoAlterarStatus(veiculo.id, event.target.value as StatusVeiculo)}
-              className="foco-visivel mt-2 min-h-10 w-full rounded-lg border border-linha bg-[#0b1019] px-3 text-sm text-texto"
+              className="foco-visivel mt-2 min-h-10 w-full rounded-lg border border-linha bg-card-solido px-3 text-sm text-texto"
             >
               <option value="disponivel">Disponível</option>
               <option value="reservado">Reservado</option>

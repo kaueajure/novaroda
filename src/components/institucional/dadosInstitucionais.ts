@@ -110,7 +110,7 @@ export const recursosInstitucionais = [
   "Indicadores de estoque e oportunidades",
   "Interface responsiva para desktop e celular",
   "Feedback visual em ações importantes",
-  "Dados mockados prontos para troca por API",
+  "Dados locais prontos para conexão com API",
 ];
 
 export const linhaDoTempoInstitucional = [

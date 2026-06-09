@@ -25,7 +25,7 @@ export const CampoTexto = forwardRef<HTMLInputElement, CampoTextoProps>(
           id={campoId}
           ref={ref}
           className={cn(
-            "foco-visivel min-h-11 w-full rounded-lg border border-linha bg-[#0b1019] px-3 py-2 text-base text-texto placeholder:text-texto-fraco transition duration-200 hover:border-linha-forte",
+            "foco-visivel min-h-11 w-full rounded-lg border border-linha bg-card-solido px-3 py-2 text-base text-texto placeholder:text-texto-fraco transition duration-200 hover:border-linha-forte",
             erro && "border-erro/70",
             className,
           )}

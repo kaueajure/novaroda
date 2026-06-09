@@ -86,7 +86,7 @@ export function ListaVeiculos() {
           veiculoParaExcluir
             ? `${veiculoParaExcluir.marca} ${veiculoParaExcluir.modelo}`
             : "este veículo"
-        } do estoque simulado.`}
+        } do estoque da loja.`}
         textoConfirmar="Excluir"
         aoConfirmar={confirmarExclusao}
         aoFechar={() => setVeiculoParaExcluir(null)}
