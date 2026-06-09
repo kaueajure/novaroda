@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, PanelLeftOpen, Search } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 import { AlternadorTema } from "@/components/layout/AlternadorTema";
 import { useLojaStore } from "@/store/useLojaStore";
 import { cn } from "@/utils/cn";
@@ -8,13 +8,11 @@ import { cn } from "@/utils/cn";
 type CabecalhoPainelProps = {
   aoAbrirMenu: () => void;
   sidebarDesktopAberta: boolean;
-  aoAbrirSidebarDesktop: () => void;
 };
 
 export function CabecalhoPainel({
   aoAbrirMenu,
   sidebarDesktopAberta,
-  aoAbrirSidebarDesktop,
 }: CabecalhoPainelProps) {
   const loja = useLojaStore((state) => state.loja);
   const usuario = useLojaStore((state) => state.usuario);
@@ -23,7 +21,7 @@ export function CabecalhoPainel({
     <header
       className={cn(
         "sticky top-0 z-20 border-b border-linha bg-fundo/86 backdrop-blur-xl transition-[margin] duration-200",
-        sidebarDesktopAberta && "lg:ml-[280px]",
+        sidebarDesktopAberta ? "lg:ml-[280px]" : "lg:ml-[84px]",
       )}
     >
       <a
@@ -41,18 +39,6 @@ export function CabecalhoPainel({
         >
           <Menu className="size-5" aria-hidden="true" />
         </button>
-        {!sidebarDesktopAberta ? (
-          <button
-            type="button"
-            onClick={aoAbrirSidebarDesktop}
-            className="foco-visivel hidden size-11 place-items-center rounded-lg border border-linha bg-white/[0.03] text-texto-suave lg:grid"
-            aria-label="Abrir sidebar"
-            title="Abrir sidebar"
-          >
-            <PanelLeftOpen className="size-5" aria-hidden="true" />
-          </button>
-        ) : null}
-
         <div className="hidden min-w-0 flex-1 md:block">
           <p className="text-sm font-semibold text-texto">{loja.nome}</p>
           <p className="text-xs text-texto-fraco">

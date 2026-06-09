@@ -13,10 +13,7 @@ export function RodapeSite() {
             </span>
             <div>
               <p className="font-display text-2xl font-bold leading-none text-texto">
-                AutoGestor
-              </p>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-principal">
-                Pro
+                Nova Roda
               </p>
             </div>
           </div>

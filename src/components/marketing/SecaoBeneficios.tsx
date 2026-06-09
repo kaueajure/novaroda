@@ -45,7 +45,7 @@ export function SecaoBeneficios() {
       <SecaoTitulo
         etiqueta="Produtividade"
         titulo="Troque tarefas repetidas por um fluxo de loja mais fluido."
-        descricao="O AutoGestor Pro centraliza a rotina do lojista para reduzir retrabalho e acelerar decisões comerciais."
+        descricao="A Nova Roda centraliza a rotina do lojista para reduzir retrabalho e acelerar decisões comerciais."
       />
       <motion.div
         initial="hidden"

@@ -16,7 +16,7 @@ const fonteCorpo = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "AutoGestor Pro | Site institucional para lojas de veículos",
+  title: "Nova Roda | Site institucional para lojas de veículos",
   description:
     "Site institucional e sistema demonstrativo para lojistas organizarem carros, motos, estoque, clientes e oportunidades.",
 };

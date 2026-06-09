@@ -143,7 +143,7 @@ export const useLojaStore = create<LojaState>()(
       },
     }),
     {
-      name: "autogestor-pro-store-local",
+      name: "nova-roda-store-local",
       partialize: (state) => ({
         autenticado: state.autenticado,
         usuario: state.usuario,

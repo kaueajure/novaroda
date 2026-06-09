@@ -1,4 +1,4 @@
-# AutoGestor Pro
+# Nova Roda
 
 Site institucional e sistema SaaS para lojas de automóveis, focado em carros e motos. O objetivo é apresentar a plataforma em páginas públicas completas e manter um painel administrativo funcional para gestão de estoque, clientes e oportunidades.
 
@@ -34,7 +34,7 @@ npm run build
 
 ## Páginas públicas institucionais
 
-- `/` - Página inicial institucional do AutoGestor Pro.
+- `/` - Página inicial institucional da Nova Roda.
 - `/sobre` - Propósito da plataforma e visão operacional.
 - `/solucoes` - Módulos para estoque, atendimento, painel e rotina escalável.
 - `/recursos` - Recursos implementados e possíveis evoluções.

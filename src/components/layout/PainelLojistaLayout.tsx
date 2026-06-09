@@ -20,17 +20,17 @@ export function PainelLojistaLayout({ children }: { children: ReactNode }) {
           aoFecharMobile={() => setMenuAberto(false)}
           abertoDesktop={sidebarDesktopAberta}
           aoFecharDesktop={() => setSidebarDesktopAberta(false)}
+          aoAbrirDesktop={() => setSidebarDesktopAberta(true)}
         />
       </AnimatePresence>
       <CabecalhoPainel
         aoAbrirMenu={() => setMenuAberto(true)}
         sidebarDesktopAberta={sidebarDesktopAberta}
-        aoAbrirSidebarDesktop={() => setSidebarDesktopAberta(true)}
       />
       <div
         className={cn(
           "min-w-0 transition-[margin] duration-200",
-          sidebarDesktopAberta && "lg:ml-[280px]",
+          sidebarDesktopAberta ? "lg:ml-[280px]" : "lg:ml-[84px]",
         )}
       >
         {children}

@@ -20,7 +20,7 @@ export const useTemaStore = create<TemaState>()(
       definirTema: (tema) => set({ tema }),
     }),
     {
-      name: "autogestor-pro-tema",
+      name: "nova-roda-tema",
     },
   ),
 );

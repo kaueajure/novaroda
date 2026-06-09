@@ -17,14 +17,14 @@ export const paginasInstitucionais = [
   {
     href: "/",
     label: "Início",
-    titulo: "AutoGestor Pro",
+    titulo: "Nova Roda",
     descricao: "Visão institucional do sistema para lojas de veículos.",
   },
   {
     href: "/sobre",
     label: "Sobre",
     titulo: "Sobre a plataforma",
-    descricao: "Como o AutoGestor Pro organiza a rotina comercial da loja.",
+    descricao: "Como a Nova Roda organiza a rotina comercial da loja.",
   },
   {
     href: "/solucoes",

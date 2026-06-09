@@ -32,7 +32,7 @@ export function TelaLogin() {
   } = useForm<DadosLogin>({
     resolver: zodResolver(schemaLogin),
     defaultValues: {
-      email: "paulo@autogestorpro.demo",
+      email: "paulo@novaroda.demo",
       senha: "demo123",
     },
   });
@@ -61,10 +61,7 @@ export function TelaLogin() {
               </span>
               <div>
                 <p className="font-display text-3xl font-bold leading-none text-texto">
-                  AutoGestor
-                </p>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-principal">
-                  Pro
+                  Nova Roda
                 </p>
               </div>
             </div>

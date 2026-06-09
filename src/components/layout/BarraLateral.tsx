@@ -8,6 +8,7 @@ import {
   Gauge,
   LogOut,
   PanelLeftClose,
+  PanelLeftOpen,
   Settings,
   Users,
   X,
@@ -16,6 +17,9 @@ import {
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import { useLojaStore } from "@/store/useLojaStore";
+
+const LARGURA_SIDEBAR_ABERTA = 280;
+const LARGURA_SIDEBAR_COMPACTA = 84;
 
 const itensMenu = [
   { href: "/painel", label: "Dashboard", icon: Gauge },
@@ -31,6 +35,7 @@ type BarraLateralProps = {
   aoFecharMobile?: () => void;
   abertoDesktop?: boolean;
   aoFecharDesktop?: () => void;
+  aoAbrirDesktop?: () => void;
 };
 
 export function BarraLateral({
@@ -38,6 +43,7 @@ export function BarraLateral({
   aoFecharMobile,
   abertoDesktop = true,
   aoFecharDesktop,
+  aoAbrirDesktop,
 }: BarraLateralProps) {
   const pathname = usePathname();
   const router = useRouter();
@@ -48,95 +54,147 @@ export function BarraLateral({
     router.push("/");
   }
 
-  const conteudo = (
-    <aside className="flex h-full w-[280px] flex-col border-r border-linha bg-fundo-elevado/96 px-4 py-5 backdrop-blur-xl">
-      <div className="flex items-center justify-between gap-3">
-        <Link href="/" className="foco-visivel rounded-lg" aria-label="AutoGestor Pro">
-          <div className="flex items-center gap-3">
-            <span className="grid size-11 place-items-center rounded-xl border border-principal/30 bg-principal/12 text-principal">
-              <Car className="size-5" aria-hidden="true" />
-            </span>
-            <div>
-              <p className="font-display text-2xl font-bold leading-none text-texto">
-                AutoGestor
-              </p>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-principal">
-                Pro
-              </p>
-            </div>
-          </div>
-        </Link>
-        <button
-          type="button"
-          onClick={aoFecharMobile}
-          className="foco-visivel grid size-10 place-items-center rounded-lg text-texto-fraco hover:bg-white/[0.06] hover:text-texto lg:hidden"
-          aria-label="Fechar menu"
-        >
-          <X className="size-5" aria-hidden="true" />
-        </button>
-        <button
-          type="button"
-          onClick={aoFecharDesktop}
-          className="foco-visivel hidden size-10 place-items-center rounded-lg text-texto-fraco hover:bg-white/[0.06] hover:text-texto lg:grid"
-          aria-label="Fechar sidebar"
-          title="Fechar sidebar"
-        >
-          <PanelLeftClose className="size-5" aria-hidden="true" />
-        </button>
-      </div>
-
-      <nav className="mt-8 space-y-1" aria-label="Navegação principal">
-        {itensMenu.map((item) => {
-          const ativo =
-            item.href === "/painel"
-              ? pathname === "/painel"
-              : pathname.startsWith(item.href.replace("#configuracoes", ""));
-          const Icone = item.icon;
-
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={aoFecharMobile}
-              className={cn(
-                "foco-visivel flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm font-semibold text-texto-suave transition duration-200 hover:bg-white/[0.06] hover:text-texto",
-                ativo &&
-                  "border border-principal/20 bg-principal/10 text-principal shadow-[inset_0_0_24px_rgba(97,214,200,0.05)]",
-              )}
-            >
-              <Icone className="size-5" aria-hidden="true" />
-              {item.label}
-            </Link>
-          );
-        })}
-      </nav>
-
-      <div className="mt-auto rounded-xl border border-linha bg-white/[0.03] p-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-texto-fraco">
-          Plano ativo
-        </p>
-        <p className="mt-2 text-lg font-semibold text-texto">Pro Operação</p>
-        <p className="mt-1 text-sm leading-5 text-texto-suave">
-          Dados locais, pronto para plugar API, CRM e publicação de anúncios.
-        </p>
-      </div>
-
-      <button
-        type="button"
-        onClick={encerrarSessao}
-        className="foco-visivel mt-4 flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm font-semibold text-texto-suave transition hover:bg-erro/10 hover:text-erro"
+  function renderizarConteudo(compacta = false) {
+    return (
+      <aside
+        className={cn(
+          "flex h-full flex-col overflow-hidden border-r border-linha bg-fundo-elevado/96 backdrop-blur-xl",
+          compacta ? "w-[84px] px-3 py-5" : "w-[280px] px-4 py-5",
+        )}
       >
-        <LogOut className="size-5" aria-hidden="true" />
-        Sair
-      </button>
-    </aside>
-  );
+        <div
+          className={cn(
+            "flex gap-3",
+            compacta ? "flex-col items-center" : "items-center justify-between",
+          )}
+        >
+          <Link
+            href="/"
+            className={cn("foco-visivel rounded-lg", compacta && "grid place-items-center")}
+            aria-label="Nova Roda"
+            title={compacta ? "Nova Roda" : undefined}
+          >
+            <div className={cn("flex items-center", compacta ? "justify-center" : "gap-3")}>
+              <span className="grid size-11 shrink-0 place-items-center rounded-xl border border-principal/30 bg-principal/12 text-principal">
+                <Car className="size-5" aria-hidden="true" />
+              </span>
+              {!compacta ? (
+                <div>
+                  <p className="font-display text-2xl font-bold leading-none text-texto">
+                    Nova Roda
+                  </p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-principal">
+                    Gestão
+                  </p>
+                </div>
+              ) : null}
+            </div>
+          </Link>
+
+          {compacta ? (
+            <button
+              type="button"
+              onClick={aoAbrirDesktop}
+              className="foco-visivel grid size-10 place-items-center rounded-lg text-texto-fraco transition hover:bg-white/[0.06] hover:text-texto"
+              aria-label="Abrir sidebar"
+              title="Abrir sidebar"
+            >
+              <PanelLeftOpen className="size-5" aria-hidden="true" />
+            </button>
+          ) : (
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                onClick={aoFecharMobile}
+                className="foco-visivel grid size-10 place-items-center rounded-lg text-texto-fraco transition hover:bg-white/[0.06] hover:text-texto lg:hidden"
+                aria-label="Fechar menu"
+              >
+                <X className="size-5" aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                onClick={aoFecharDesktop}
+                className="foco-visivel hidden size-10 place-items-center rounded-lg text-texto-fraco transition hover:bg-white/[0.06] hover:text-texto lg:grid"
+                aria-label="Recolher sidebar"
+                title="Recolher sidebar"
+              >
+                <PanelLeftClose className="size-5" aria-hidden="true" />
+              </button>
+            </div>
+          )}
+        </div>
+
+        <nav className={cn("mt-8 space-y-1", compacta && "w-full")} aria-label="Navegação principal">
+          {itensMenu.map((item) => {
+            const ativo =
+              item.href === "/painel"
+                ? pathname === "/painel"
+                : pathname.startsWith(item.href.replace("#configuracoes", ""));
+            const Icone = item.icon;
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={aoFecharMobile}
+                title={compacta ? item.label : undefined}
+                aria-label={compacta ? item.label : undefined}
+                className={cn(
+                  "foco-visivel flex min-h-11 items-center rounded-lg text-sm font-semibold text-texto-suave transition duration-200 hover:bg-white/[0.06] hover:text-texto",
+                  compacta ? "justify-center px-0" : "gap-3 px-3",
+                  ativo &&
+                    "border border-principal/20 bg-principal/10 text-principal shadow-[inset_0_0_24px_rgba(97,214,200,0.05)]",
+                )}
+              >
+                <Icone className="size-5 shrink-0" aria-hidden="true" />
+                {compacta ? <span className="sr-only">{item.label}</span> : item.label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {!compacta ? (
+          <div className="mt-auto rounded-xl border border-linha bg-white/[0.03] p-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-texto-fraco">
+              Plano ativo
+            </p>
+            <p className="mt-2 text-lg font-semibold text-texto">Pro Operação</p>
+            <p className="mt-1 text-sm leading-5 text-texto-suave">
+              Dados locais, pronto para plugar API, CRM e publicação de anúncios.
+            </p>
+          </div>
+        ) : null}
+
+        <button
+          type="button"
+          onClick={encerrarSessao}
+          title={compacta ? "Sair" : undefined}
+          className={cn(
+            "foco-visivel min-h-11 rounded-lg text-sm font-semibold text-texto-suave transition hover:bg-erro/10 hover:text-erro",
+            compacta
+              ? "mt-auto grid size-11 place-items-center self-center"
+              : "mt-4 flex items-center gap-3 px-3",
+          )}
+        >
+          <LogOut className="size-5 shrink-0" aria-hidden="true" />
+          {compacta ? <span className="sr-only">Sair</span> : "Sair"}
+        </button>
+      </aside>
+    );
+  }
 
   return (
     <>
-      {abertoDesktop ? (
-        <div className="fixed inset-y-0 left-0 z-30 hidden lg:block">{conteudo}</div>
-      ) : null}
+      <motion.div
+        className="fixed inset-y-0 left-0 z-30 hidden lg:block"
+        initial={false}
+        animate={{
+          width: abertoDesktop ? LARGURA_SIDEBAR_ABERTA : LARGURA_SIDEBAR_COMPACTA,
+        }}
+        transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {renderizarConteudo(!abertoDesktop)}
+      </motion.div>
       {abertoMobile ? (
         <motion.div
           className="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm lg:hidden"
@@ -153,7 +211,7 @@ export function BarraLateral({
             onClick={(event) => event.stopPropagation()}
             className="h-full"
           >
-            {conteudo}
+            {renderizarConteudo(false)}
           </motion.div>
         </motion.div>
       ) : null}

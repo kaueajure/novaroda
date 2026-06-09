@@ -21,10 +21,7 @@ export function CabecalhoSite() {
           </span>
           <span className="min-w-0">
             <span className="block font-display text-2xl font-bold leading-none text-texto">
-              AutoGestor
-            </span>
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-principal">
-              Pro
+              Nova Roda
             </span>
           </span>
         </Link>

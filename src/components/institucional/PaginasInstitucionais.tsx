@@ -32,7 +32,7 @@ export function PaginaHomeInstitucional() {
       <HeroInstitucional
         etiqueta="Site institucional"
         titulo="Tecnologia para organizar lojas de carros e motos."
-        descricao="O AutoGestor Pro é um sistema SaaS demonstrativo para lojistas que precisam centralizar estoque, clientes e oportunidades sem depender de processos manuais espalhados."
+        descricao="A Nova Roda é um sistema SaaS demonstrativo para lojistas que precisam centralizar estoque, clientes e oportunidades sem depender de processos manuais espalhados."
         imagem={imagemHome}
         alt="Loja moderna de veículos com carros em exposição"
         acaoPrimaria={{ href: "/solucoes", label: "Conhecer soluções" }}
@@ -50,7 +50,7 @@ export function PaginaHomeInstitucional() {
       <SecaoInstitucional
         etiqueta="Operação"
         titulo="Da vitrine ao funil, tudo precisa conversar."
-        descricao="Quando o estoque muda, o atendimento precisa saber. Quando um lead avança, a gestão precisa enxergar. A proposta do AutoGestor Pro é reduzir essas quebras."
+        descricao="Quando o estoque muda, o atendimento precisa saber. Quando um lead avança, a gestão precisa enxergar. A proposta da Nova Roda é reduzir essas quebras."
       >
         <div className="grid gap-4 lg:grid-cols-3">
           {[
@@ -78,7 +78,7 @@ export function PaginaSobreInstitucional() {
       <HeroInstitucional
         etiqueta="Sobre"
         titulo="Uma plataforma para diminuir atrito operacional."
-        descricao="O AutoGestor Pro foi desenhado para transformar tarefas repetitivas em um fluxo claro: cadastrar, consultar, acompanhar e decidir."
+        descricao="A Nova Roda foi desenhada para transformar tarefas repetitivas em um fluxo claro: cadastrar, consultar, acompanhar e decidir."
         imagem={imagemSobre}
         alt="Equipe analisando indicadores em uma mesa de trabalho"
         acaoPrimaria={{ href: "/recursos", label: "Ver recursos" }}
@@ -212,12 +212,12 @@ export function PaginaContatoInstitucional() {
         <div className="grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
           <aside className="rounded-xl border border-linha bg-card p-5">
             <h2 className="font-display text-3xl font-semibold text-texto">
-              AutoGestor Pro
+              Nova Roda
             </h2>
             <div className="mt-5 space-y-4 text-sm text-texto-suave">
               <p className="flex items-center gap-3">
                 <Mail className="size-5 text-principal" aria-hidden="true" />
-                contato@autogestorpro.demo
+                contato@novaroda.demo
               </p>
               <p className="flex items-center gap-3">
                 <Phone className="size-5 text-principal" aria-hidden="true" />
