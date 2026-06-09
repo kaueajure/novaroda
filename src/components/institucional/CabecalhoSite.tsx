@@ -3,10 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowRight, CarFront, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { paginasInstitucionais } from "@/components/institucional/dadosInstitucionais";
 import { AlternadorTema } from "@/components/layout/AlternadorTema";
+import { LogoNovaRoda } from "@/components/marca/LogoNovaRoda";
 
 export function CabecalhoSite() {
   const pathname = usePathname();
@@ -15,16 +16,16 @@ export function CabecalhoSite() {
   return (
     <header className="sticky top-0 z-40 border-b border-linha bg-fundo/94">
       <div className="mx-auto flex min-h-16 w-full max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="foco-visivel flex min-w-0 items-center gap-3 rounded-md">
-          <span className="grid size-11 shrink-0 place-items-center rounded-md border border-principal/35 bg-card-solido text-principal">
-            <CarFront className="size-5" aria-hidden="true" />
-          </span>
-          <span className="min-w-0">
-            <span className="block font-display text-2xl font-extrabold leading-none text-texto">
-              Nova Roda
-            </span>
-            <span className="etiqueta-metal mt-1 border-0 text-[0.62rem]">inventário comercial</span>
-          </span>
+        <Link
+          href="/"
+          className="foco-visivel flex min-w-0 items-center rounded-md"
+          aria-label="Nova Roda"
+        >
+          <LogoNovaRoda
+            variante="horizontal"
+            priority
+            className="h-9 w-[176px] object-contain object-left sm:h-10 sm:w-[198px]"
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Navegação institucional">

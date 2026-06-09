@@ -15,8 +15,9 @@ import {
   Workflow,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { cn } from "@/utils/cn";
+import { LogoNovaRoda } from "@/components/marca/LogoNovaRoda";
 import { useLojaStore } from "@/store/useLojaStore";
+import { cn } from "@/utils/cn";
 
 const LARGURA_SIDEBAR_ABERTA = 280;
 const LARGURA_SIDEBAR_COMPACTA = 84;
@@ -75,21 +76,19 @@ export function BarraLateral({
             aria-label="Nova Roda"
             title={compacta ? "Nova Roda" : undefined}
           >
-            <div className={cn("flex items-center", compacta ? "justify-center" : "gap-3")}>
-              <span className="grid size-11 shrink-0 place-items-center rounded-md border border-principal/35 bg-card-solido text-principal">
-                <Car className="size-5" aria-hidden="true" />
-              </span>
-              {!compacta ? (
-                <div>
-                  <p className="font-display text-2xl font-bold leading-none text-texto">
-                    Nova Roda
-                  </p>
-                  <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.22em] text-texto-fraco">
-                    Operação de pátio
-                  </p>
-                </div>
-              ) : null}
-            </div>
+            {compacta ? (
+              <LogoNovaRoda variante="simbolo" className="h-12 w-12 object-contain" />
+            ) : (
+              <div>
+                <LogoNovaRoda
+                  variante="horizontal"
+                  className="h-9 w-[182px] object-contain object-left"
+                />
+                <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.22em] text-texto-fraco">
+                  Operação de pátio
+                </p>
+              </div>
+            )}
           </Link>
 
           {compacta ? (

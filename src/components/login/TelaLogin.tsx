@@ -4,12 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Car, Eye, EyeOff, LockKeyhole, Mail, MoveLeft } from "lucide-react";
+import { Eye, EyeOff, LockKeyhole, Mail, MoveLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { BotaoPrimario } from "@/components/base/BotaoPrimario";
 import { CampoTexto } from "@/components/base/CampoTexto";
+import { LogoNovaRoda } from "@/components/marca/LogoNovaRoda";
 import { FundoAnimado } from "@/components/marketing/FundoAnimado";
 import { useLojaStore } from "@/store/useLojaStore";
 
@@ -56,18 +57,15 @@ export function TelaLogin() {
             Voltar ao site
           </Link>
           <div className="mt-14 max-w-md">
-            <div className="flex items-center gap-3">
-              <span className="grid size-12 place-items-center rounded-md border border-principal/35 bg-card-solido text-principal">
-                <Car className="size-6" aria-hidden="true" />
-              </span>
-              <div>
-                <p className="font-display text-3xl font-bold leading-none text-texto">
-                  Nova Roda
-                </p>
-                <p className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-texto-fraco">
-                  Acesso operacional
-                </p>
-              </div>
+            <div>
+              <LogoNovaRoda
+                variante="completa"
+                priority
+                className="h-28 w-[178px] object-contain object-left"
+              />
+              <p className="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-texto-fraco">
+                Acesso operacional
+              </p>
             </div>
             <h1 className="mt-10 font-display text-5xl font-semibold leading-[0.96] text-texto">
               Entre antes de abrir o pátio.
